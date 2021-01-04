@@ -1,0 +1,80 @@
+
+\documentclass[a4paper,10pt]{article}
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.0cm, right=2.0cm,
+columnsep=0.8cm]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{boxedminipage}
+\usepackage{nopageno}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage[font=it]{caption}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+%-----------------------------SET SKIP SPACES -------------------------------------------------------------------
+\setlength{\abovecaptionskip}{0pt}
+\setlength{\belowcaptionskip}{3pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+%\renewcommand{\baselinestretch}{0.7}
+% FOR enumerates
+\setlist{itemsep=-0.1cm,topsep=0.1cm,labelsep=0.3cm}
+\setenumerate{leftmargin=*}
+\setcounter{secnumdepth}{-1}
+%-----------------------------SET FONTS -------------------------------------------------------------------
+% Set fonts for title, section and subsection headings
+\makeatletter
+\renewcommand\title[1]{\gdef\@title{\fontsize{12pt}{2pt}\bfseries{#1}}}
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}{3pt}{3pt}{\normalfont\large\bfseries}}
+% \normalfont\large
+\makeatletter
+\renewcommand\subsection{\@startsection{subsection}{1}{\z@}{\z@}{\z@}{\normalfont\normalsize\bfseries}}
+\makeatletter
+\renewcommand\subsection{\@startsection{subsection}{1}{\z@}{\z@}{0.1pt}{\normalfont\normalsize\bfseries}}
+\renewcommand\refname{References}
+%																 END OF THE SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Please keep the \vspace{-1.5cm} at the top
+\title{Simulation and visualisation of mitigation and adaption strategy pathways for urban districts}																																		% Line 2 
+%If there is no second line then just put \phantom{Line 2} here
+%%% Change or delete text before "\\" on the lines below to keep the layout but don't remove the "\\"
+%%% Do not exceed more than 6 lines for authors and affiliations
+\author{
+Justin McCarty, Adam Rysanek
+
+\phantom{Line 9}} 																								
+\date{\vspace{-0.5cm}}	% remove default date and replace the Blank 10th line
+%																 END OF THE TITLE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+\section{Aims and Approaches} 
+At present mitigation and adaptations strategies compete for constrained resources within a future of uncertain climate impacts. Meeting decarbonisation goals while implementing robust and resilient adaptions strategies requires an analysis structure that can account for uncertainty as well as depict how the intermingling of strategies may hinder or benefit the ultimate trajectory of actions. A recently constructed community of 15,000 in Vancouver, BC (Wesbrook Village) offers a case study in how to recommend decarbonisation and adaptation planning decisions through near-exhaustive building simulation. In this paper the model of this growing urban district is described, following Fonseca et al.'s method (2016), several mitigation and adaptation strategies are simulated under climate change uncertainty, following Nik (2017), for their independent and compounding effects on total carbon emissions and total economic cost, and a visualization and decisions analysis strategy is described that can help planners in constructing pathways under a range of climate change and development pathways. 
+
+% Previous research on this community has shown that a planned neighbourhood energy systems is not able to compete on a carbon performance level as the regional electricity grid depending on whether operating carbon and/or embodied carbon is assessed. The same issue is foreseen on decision around construction material and community density. This paper incorporates elements of life-cycle emissions accounting in a previously-published sequential search-based building simulation process. The work assesses the Wesbrook Village site to determine, from the perspective of the municipality, the least-cost carbon reduction pathway that includes both operating and embodied emissions - and yet still achieves the community’s growth targets.
+
+\section{Scientific Innovation and Relevance}
+The marginal abatement cost (MAC) curve is an indispensable tool for planning mitigation pathways, but has historically not relied upon robust experimental analysis making it notional at best. The contribution of this research follows on the critique of simplistic MAC curves by Kesicki et al. (2011) and the evolution of MAC curve methodology in Ryansek et al. (2013), building into the curve a view of adaptation cost and the residual cost of climate change. This inclusion allows planners to more holistically evaluate the benefit of mitigation strategies in the context of direct climate impact. Additionally this study evaluates the embodied carbon associated with built environment decision making. Visualizing and discussing the sensitivity of simulation-based building design decisions to questions of operating vs. embodied carbon are important. It is not yet established whether factoring embodied carbon (and/or energy) is necessary for robust simulation-based decision-making on low-carbon building and energy systems.
+
+% This work will result in the production of marginal carbon abatement cost curves for an urban community that include both operating and embodied carbon, as well as the effect of individual technologies on real estate value and revenue, and display the  This is the first known simulation study to do so, and so this work seeks to contribute to best practise building performance simulation assessment in the coming century. The work makes use of future climate weather files under varying climate scenarios, to forecast long-term trends in building performance and comfort. Likewise, variable future cost scenarios are considered in a discounted cash flow analysis. Embodied carbon is also accounted for in the simulation process, such that every design intervention, whether it be a building technology change (i.e., upgrade of double glazing to triple glazing) or a future energy system choice is attributed with a projected value of operating carbon emissions, embodied carbon emissions, and real estate value and revenue.
+
+\section{Preliminary Results and Conclusions}
+Our initial results indicate that inclusion of embodied carbon into simulation analysis alters cost-optimal community design decision in a number of manners. For Wesbrook Village in Vancouver, BC, we see that when considering embodied carbon, the favourability of electrifying heating systems of existing buildings in a simple manner (i.e., using baseboard electric heaters) becomes preferred over upgrading existing natural gas central heating systems to electric heat pumps. Most importantly, the results indicate the importance of retaining and expanding a typology of mid-rise residential buildings, which are based on timber-frame construction and yield a significantly lower carbon footprint than any development scenario that encourages construction of high-rise, concrete buildings.
+\section{Main References}
+
+\begin{enumerate}
+    \item Fonseca, J. A., Nguyen, T.-A., Schlueter, A., & Marechal, F. (2016). City Energy Analyst (CEA): Integrated framework for analysis and optimization of building energy systems in neighborhoods and city districts. Energy and Buildings, 113, 202–226. https://doi.org/10.1016/j.enbuild.2015.11.055
+    \item Nik, V. M. (2017). Application of typical and extreme weather data sets in the hygrothermal simulation of building components for future climate – A case study for a wooden frame wall. Energy and Buildings, 154, 30–45. https://doi.org/10.1016/j.enbuild.2017.08.042
+    \item Kesicki, F and Strachan, N (2011). Marginal abatement cost (MAC) curves: confronting theory and practice. Environmental Science \& Policy, 14-8, 1195-1204.
+    \item Rysanek, A. M., & Choudhary, R. (2013). Using building simulation to create marginal abatement cost curves of individual buildings. 13th Conference of International Building Performance Simulation, 1877-1884.
+\end{enumerate}
+
+
+
+
+\end{document}

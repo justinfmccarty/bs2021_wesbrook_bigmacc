@@ -1,0 +1,138 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template revision history:
+% BS2021: Revised by Filip Jorissen, filip.jorissen@kuleuven.be
+% BS2019: Revised by Alessandro Prada, alessandro.prada@unitn.it
+% BS2017: Initial version by Michael Wetter, mwetter@lbl.gov
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[twocolumn, a4paper,10pt]{article}
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.0cm, right=2.0cm,
+columnsep=0.8cm]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{boxedminipage}
+\usepackage{nopageno}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage[font=it]{caption}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+%-----------------------------SET SKIP SPACES -------------------------------------------------------------------
+\setlength{\abovecaptionskip}{0pt}
+\setlength{\belowcaptionskip}{3pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+%\renewcommand{\baselinestretch}{0.7}
+% FOR enumerates
+\setlist{itemsep=-0.1cm,topsep=0.1cm,labelsep=0.3cm}
+\setenumerate{leftmargin=*}
+\setcounter{secnumdepth}{-1}
+%-----------------------------SET FONTS -------------------------------------------------------------------
+% Set fonts for title, section and subsection headings
+\makeatletter
+\renewcommand\title[1]{\gdef\@title{\fontsize{12pt}{2pt}\bfseries{#1}}}
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}{3pt}{3pt}{\normalfont\large\bfseries}}
+% \normalfont\large
+\makeatletter
+\renewcommand\subsection{\@startsection{subsection}{1}{\z@}{\z@}{\z@}{\normalfont\normalsize\bfseries}}
+\makeatletter
+\renewcommand\subsection{\@startsection{subsection}{1}{\z@}{\z@}{0.1pt}{\normalfont\normalsize\bfseries}}
+\renewcommand\refname{References}
+%END OF THE SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Simulation and visualisation of mitigation and adaption strategy pathways for urban districts
+%%%%%%%%%%%%%%%%%%%%%%%%   TITLE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Please keep the \vspace{4pt} at the top
+\title{%
+Visualizing climate change mitigation and adaptation pathways\\																								% Line 1
+%%% Please keep the \vspace{4pt} between lines in the title
+\vspace{4pt}
+for new urban development} 																																% Line 2 
+%If there is no second line then just put \phantom{Line 2} here
+%%% Change or delete text before "\\" on the lines below to keep the layout but don't remove the "\\"
+%%% Do not exceed more than 6 lines for authors and affiliations
+\author{																																														% Line 3
+% Justin McCarty$^1$, Adam Rysanek$^1$
+\\ 																				% Line 4
+% $^1$The University of British Columbia, Vancouver, Canada
+\\ 																																                                                            	% Line 5
+% $^2$Institution 2, City 2, Country 2
+\\ 																																                                                                % Line 6
+% comment the lines below and add \phantom{} lines as needed to reach a total of 10 lines
+% \textit{(The names and affiliations SHOULD NOT be included in the draft submitted for review)}
+\\ 			 			  	                                                    % Line 7
+% \textit{(leave blank up to line 10 - remove line numbering from final version)}
+\\ 														                    	% Line 8
+\phantom{Line 9}} 																																								            	% Line 9
+\date{\vspace{-0.5cm}}	% remove default date and replace the Blank 10th line														                                                            % Line 10
+%END OF THE TITLE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\section*{Abstract}	% Section headings need to be upper and lower case.
+\addtocounter{section}{1}
+At present mitigation and adaptations strategies compete for constrained resources within a future of uncertain climate impacts. Meeting decarbonisation goals while implementing robust and resilient adaptions strategies requires an analysis structure that can account for uncertainty as well as depict how the intermingling of strategies may hinder or benefit the ultimate trajectory of actions. The marginal abatement cost curve (MACC) is an indispensable tool for planning mitigation pathways, but has historically not relied upon robust experimental analysis making it notional at best nor has it included a view of adaptation pathways. This study utilizes a recently developed and nearly finished medium-density community in Vancouver, British Columbia, Canada of 15,000 residents as a case study for developing a pathway based MACC. Multiple mitigation and adaptation measures are modeled individually and through exhaustive combination to test their sensitivity on marginal abatement cost and residual cost of climate change. The resulting MACCs are compared with more tradition decision support visualizations to argue for a more comprehensive approach to decarbonisation and adaptation planning. 
+
+\section*{Key Innovations}
+\begin{itemize}
+\item Intermingling of mitigation and adaptation strategies in a MACC.
+\item 
+\end{itemize}
+
+\section*{Practical Implications}
+Open-source simulation tools can be used to test the sensitivity of different decarbonisation and adaptation strategies for an urban area, alowwing planners better models to make planning decisions. 
+
+%---------------------------------------------------------------------------------------
+\section*{Introduction}
+
+Atmospheric concentrations of carbon dioxide lie northward of 410 parts per million, with recent estimates from global satellite observations placing the Northern Hemisphere’s land and ocean surface temperature anomaly at 1.29°C [ncdc]. Due to the cumulative warming of the planet, climate change impacts are now being recognized as burdens on economic and social systems [X attribution science report for 2020]. Implementing adaptation strategies within the built environment is necessary to increase social resilience and protect human life and prevent economic damage, perhaps even bolster both [X cobenefits of adaptation paper]. Simultaneously, the mitigation of present emissions, the abatement of possible future emissions, and the sequestration of atmospheric carbon is necessary to curtail increasingly dangerous and catastrophic levels of warming. This process of carbon drawdown is very familiar within studies of the built environment with strategies posed for transportation, buildings, agriculture, forestry, and other landuses. MItigationa and adaptation strategies though are rarely, if ever simultaneously tested in building
+
+In the presence of limited resources and a range of objectives, the cost and benefit of each strategy needs to be measured under a multitude of scenarios and in combination with other measures. This study will test the performance of adaptation and mitigation strategies alongside several development pathways and climate change scenarios for multiple population centers within BC. Simulation will be exhaustive of the different combinations in the pool of strategies and scenarios allowing each strategy to be measured independently as well as determine combinations that are more or less efficient than individual implementation under the entire range of uncertainty.
+
+Lastly, the outcomes of such studies need to be presented and interacted with well
+
+\subsection*{}
+
+%---------------------------------------------------------------------------------------
+\section*{Methods}
+
+\subsection*{}
+
+%---------------------------------------------------------------------------------------
+\section*{Results}
+
+\subsection*{}
+
+%---------------------------------------------------------------------------------------
+\section*{Discussion}
+
+\subsection*{}
+
+%---------------------------------------------------------------------------------------
+\section*{Conclusion}
+
+
+%---------------------------------------------------------------------------------------
+\section*{Acknowledgment}
+
+
+%---------------------------------------------------------------------------------------
+This document is a summary of various documents from previous Building Simulation Conferences.
+%here starts the references
+\bibliographystyle{BS2021}
+\bibliography{references}
+\newpage
+\onecolumn
+Please \textbf{do not} include this disclaimer in your paper.  You will be required to accept these conditions when you  submit your paper via the web site.
+
+\begin{figure*}[ht]
+\centering
+
+\end{figure*}
+
+\end{document}
