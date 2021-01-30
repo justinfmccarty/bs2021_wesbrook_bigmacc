@@ -140,8 +140,6 @@ The majority of Wesbrook has been completed as of 2020, with 50\% of the total e
     \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
 \end{table*}
 
-
-
 \subsection*{Mitigation and adaptation decision tools}
 \citet{Rysanek MACC} expanded on the use of marginal abatement cost curves as a tool for planning retrofit pathways in single building optimization. The authors commentary was that by failing to consider technical and economic interactions MACCs such as those proposed by \citet{Mckinnsey} were inauthentic. Without accounting for the additionality of measures many MACCs fall into this grouping and limit their overall effectiveness. \citet{kesicki} acknowledges temporal interactions as an additional dimension that need to be considered when constructing MACCs. Traditionally MACCs were developed for annual-planning and more recently, as ambition has grown, so too have their temporal scales. These interactions can be summarized as understanding how investments made in the past may affect the outcome of the MACC, similar to the issue of technical and economic interactions. In planning buildings or infrastructure with MACCs this becomes a significant feature to consider as selecting investments to implement, one typically does so along an investment pathway. 
 
@@ -229,12 +227,26 @@ The simulation procedure was executed for 1024 iterations, producing hourly dema
 \subsection*{General Performance}
 Figure \ref{fig:joint_plot} displays net-cost and gross emissions for each iteration within each of the four scenarios. Climate change does not appear to have a large impact on decarbonisation efforts. A warmer climate may even contribute to more emissions-performance at a lower cost. 
 
+\begin{figure}[hbpt]
+    \centering
+    \includegraphics[scale=1.0]{figures/general_results.eps}
+    \caption{General results from the iterations.}
+    \label{fig:joint_plot}
+\end{figure}
+
 \subsection*{Visualizing decision making}
 Marginal abatement cost and the adaptation metric were plotted to evaluate the Pareto front of each scenario. For each of the four combinations of development and climate change pathway, Figure \ref{fig:optimal_plots} highlights the best performing set of experiments. The charts are created under that assumption that only one strategy can be implemented at a time, with the topmost row containing all 255 experiments for each scenario and the following rows one less strategy implemented until the bottom most row which contains only a single strategy implemented. This presentation format allows us to view the optimal target and then evaluate how to achieve that by selecting strategy combinations in reverse, as suggested by the overlaid pathway. The lines in Figure \ref{fig:pareto-front} represent the set of optimal combinations for that particular group. In several cases no optimum set is reached due their only being one optimum. As a decision-making tool these types of graphs allow us to compare two base-metrics for economic decision making about mitigation and the effectiveness of the strategies as adaptation efforts.
 
-MACCs were drawn as another form of visualising decision making. Figure \ref{fig:MACC_budget} is drawn under the assumption that planners are expecting a worst-case climate change scenario by the end of the century, have set a budget of an additional \$11,000,000 that could be invested across the development on mitigation and adaptation strategies. The drawn MACC then presents every possible combination under the development and climate change trajectory that falls below the budget. Another MACC was drawn, Figure \ref{fig:MACC_threshold} assuming an emissions reduction threshold of 80\% by 2050 under the best-case climate scenario. 
+\begin{figure*}[hbpt]
+    \centering
+    \includegraphics[scale=0.8]{figures/optimal_plots.eps}
+    \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
+    \label{fig:joint_plot}
+\end{figure*}
 
+MACCs were drawn as another form of visualising decision making. Figure \ref{fig:MACC_budget} is drawn under the assumption that planners are expecting a worst-case climate change scenario by the end of the century and have set a budget of an additional \$11,000,000 that could be invested across the development on mitigation and adaptation strategies. The drawn MACC then presents every possible combination under the development and climate change trajectory that falls below the budget. Another MACC was drawn, Figure \ref{fig:MACC_threshold} assuming an emissions reduction threshold of 80\% by 2050 under the best-case climate scenario. A third MACC was generated under the assumption that planners would be interested in decarbonizing without abandoning the district heating system, the bulk of the emissions.
 
+To illustrate the construction of a more authentic MACC, we began with the combination of strategies that produced the best degree of adaptability under the worst-case climate change scenario at the end of the century, where the most hours outside of the comfort threshold were reduced. This strategy-set could have been any of those in Table \ref{tab:worst_case_adapt}. 
 
 
 %---------------------------------------------------------------------------------------
