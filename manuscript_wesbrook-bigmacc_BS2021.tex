@@ -105,19 +105,19 @@ The literature on MACCs has not yet involved adaptation strategies as a form of 
 
 This study will test the performance of eight strategies alongside one development pathway and two climate change pathways, simulated at two points in time (2050 and 2080), for a case study community in southwestern Canada; Wesbrook Village, Vancouver, British Columbia (BC). A baseline urban building energy model (UBEM) was created to represent the development of the community to-date, shown in Figure \ref{fig:wesbrook_base} alongside the future development and climate change pathways.
 
-\begin{figure}
-    \centering
-    \includegraphics[scale=2.3]{figures/sample_sequence.eps}
-    \caption{Each scenario iterated through 256 combinations of strategy implementation.}
-    \label{fig:sample_sequence}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[scale=1.5]{figures/sample_sequence.eps}
+%     \caption{Each scenario iterated through 256 combinations of strategy implementation.}
+%     \label{fig:sample_sequence}
+% \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics{}
-    \caption{The baseline UBEM for Wesbrook Village in BC.}
-    \label{fig:wesbrook_base}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics{}
+%     \caption{The baseline UBEM for Wesbrook Village in BC.}
+%     \label{fig:wesbrook_base}
+% \end{figure}
 
 \subsection*{Wesbrook Village} 
 Simulation will be exhaustive of the different combinations in the pool of strategies and scenarios allowing each strategy to be measured independently as well as determine combinations that are more or less efficient than individual implementation under the entire range of uncertainty, diagrammed in Figure \ref{fig:sample_sequence}.
@@ -242,9 +242,9 @@ The simulation procedure was executed for 1024 scenarios, producing hourly deman
 \subsection*{General Performance}
 Figure \ref{fig:cross_plot} displays net-cost and gross emissions for each iteration within each of the four scenarios. Three groups tend to emerge with the most start difference being that one group is emitting far more than the other two. This is a result of those scenarios still relying on the natural-gas based heating system. This difference is apparent across both climate change pathways, leading to a conslusion that the impacts of more severe climate are not disrupting mitigation efforts in the model. It appears to enable it to an extent. Comparing the highlighted groups of similar scenarios between the best-case and worst-case scenarios a decrease in lifetime emissions is apparent. We suspect that this is due to the warmer temperatures reducing the heating seasons as well as enabling the district to remain below the heat pump capacity more of the year. Figure \ref{fig:comapre_district} shows this in the operation of the district in the baseline cases from each climate scenario.
 
-\begin{figure}[hbpt]
+\begin{figure}[hbt]
     \centering
-    \includegraphics[scale=1.0]{figures/general_results.eps}
+    \includegraphics[scale=0.8]{figures/general_results_box.eps}
     \caption{General results from the iterations presented across total emissions over 30 years and net 30-year total annualized cost.}
     \label{fig:cross_plot}
 \end{figure}
@@ -254,51 +254,35 @@ Marginal abatement cost and the adaptation metric were plotted to evaluate the P
 
 MACCs were drawn as another form of visualising decision making. Figure \ref{fig:MACC_budget} is not a \textit{true} MACC in that you can only implement one of the strategy-sets, represented by the bars. However, it improves on previous \textit{illustrative} MACCs in that the bars do not unnecessarily represent single strategy interventions, but rather a set of strategies. It was drawn to assist in planning under the assumption that planners are expecting a worst-case climate change scenario by the end of the century and have set a budget of an additional \$11,000,000 that could be invested across the development on mitigation and adaptation strategies. The drawn MACC then presents every possible combination under the development and climate change trajectory that falls below the budget, selecting \textit{01011001} at the marginal abatement cost of -\$123. Another \textit{illustrative} MACC was drawn, seen in Figure \ref{fig:MACC_threshold} assuming an emissions reduction threshold of 80\% by 2050 under the best-case climate scenario. All bars represet strategy-sets that would reach that reductions total, ultimately \textit{0111000} is chosen at the marginal abatement cost of -\$50.
 
+
+\begin{figure}[hbpt]
+    \centering
+    \includegraphics[scale=0.8]{figures/true_maccs_waterfalls_both.eps}
+    \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
+    \label{fig:true_macc_both}
+\end{figure}
+
+
 Of the two \textit{true} MACCs used in this study, the first represents a strategy-set that was chosen based on a high degree of adaptability present, while also abating a large amount of emissions. This was done under the worst-case climate scenario and the selected strategy-set \textit{00011111} is highlighted in Figure \ref{fig:pareto_plot}. Figure \ref{fig:MACC_true_noDH} describes how each strategy contributes to the overall decrease in emissions. The MACC is shown in Figure \ref{fig:MACC_true_noDH} where the first strategy, the installation of heat pumps in all buildings to service space heating and cooling as well as domestic hot water, contributes to the bulk of the emissions reduction. This is due to the impact that moving away from the district heating system, which has the potential to use natural gas if heating and DHW load exceeds the district's heat pump capacity. The majority of the abatement can be attributed to the heat pump strategy, removing natural gas from the fuel mix, while the other strategies can be said to lending to adaptability. This point about the fuel mix will be returned to more in the discussion, but raises that question about how to affordably meet zero-carbon targets after fuel-switching has been achieved. This scenario only achieves 67\% emissions reduction over the baseline by 2080.
 
-% \begin{figure}[hbpt]
-%     \centering
-%     \includegraphics[scale=1]{figures/true_macc_noDH_waterfall.eps}
-%     \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
-%     \label{fig:MACC_true_noDH_waterfall}
-% \end{figure}
 
-% \begin{figure}[hbpt]
+% \begin{figure}[t]
 %     \centering
-%     \includegraphics[scale=0.8]{figures/true_macc_noDH.eps}
+%     \includegraphics[scale=0.8]{figures/true_macc_noDH_waterfall_comb.eps}
 %     \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
 %     \label{fig:MACC_true_noDH}
 % \end{figure}
 
-\begin{figure}[t]
-    \centering
-    \includegraphics[scale=0.8]{figures/true_macc_noDH_waterfall_comb.eps}
-    \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
-    \label{fig:MACC_true_noDH}
-\end{figure}
-
 A second \textit{true} MACC was generated under the plan to abate as many emissions as possible while continuing to use the district heating system, under the worst-case climate scenario. Figure \ref{fig:MACC_true_DH} describes how each measure contributes to overall emissions reduction. The resulting MACC shows a more consistent scale of MAC and overall abatement between measures that the previous example, but total abatement is only 8\% of the baseline's emissions.
 
-% \begin{figure*}[hbpt]
+
+
+% \begin{figure}[t]
 %     \centering
-%     \includegraphics[scale=0.8]{figures/true_macc_dh.eps}
+%     \includegraphics[scale=0.8]{figures/true_macc_DH_waterfall_comb.eps}
 %     \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
 %     \label{fig:MACC_true_DH}
-% \end{figure*}
-
-% \begin{figure}[hbpt]
-%     \centering
-%     \includegraphics[scale=1]{figures/true_macc_DH_waterfall.eps}
-%     \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
-%     \label{fig:MACC_true_DH_waterfall}
 % \end{figure}
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[scale=0.8]{figures/true_macc_DH_waterfall_comb.eps}
-    \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
-    \label{fig:MACC_true_DH}
-\end{figure}
 
 
 \begin{figure*}[hbpt]
@@ -337,8 +321,7 @@ The results of the simulation provide more than an example for decision-support 
 
 
 %---------------------------------------------------------------------------------------
-This document is a summary of various documents from previous Building Simulation Conferences.
-%here starts the references
+\footnotesize
 \bibliographystyle{BS2021}
 \bibliography{bs2021_ref}
 % \newpage
