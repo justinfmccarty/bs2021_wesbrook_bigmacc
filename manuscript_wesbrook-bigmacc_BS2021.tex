@@ -123,22 +123,28 @@ Simulation will be exhaustive of the different combinations in the pool of strat
 Wesbrook Village and the neighbouring Stadium Road are new communities that expected to reach 715,925 sqm. of residential floor space and 10,000 sqm. of non-residential floor space by 2040. It is the part of a larger community plan led by the development arm of The University of British Columbia (UBC) \citep{wesbrook plan; stadium plan}. The baseline for this study is taken at the end of 2020, where the development has completed its fifteenth year. The development, referred to throughout the study as \textit{Wesbrook}, is a compelling case study as it can be considered a model of medium-density new development for BC and North America at large. Building code for the community is modeled after the aspirational provincial code made more strict through a continuous review with the most recent version taking effect in January 2021 and targeting net-zero energy ready (NZER) by 2032; NZER buildings are built such that with the addition of solar panels or renewable technologies they would consume only as much energy as they produce. The energy system is a mixture of grid-connected systems, in building natural gas boilers, and a district heating system that supplies hydronic baseboard and floor heating systems as well as domestic hot water. This district heating system, described in \citet{McCarty 2021}, is designed to migrate from natural gas boilers to heat pumps fed by waste heat from a nearby particle accelerator facility that is trimmed up by peaking natural gas boilers. Cooling services have yet to considered in spec-residential development in BC as the climate has historically allowed comfort to be achieved in the peak of summer through natural ventilation; research however indicates that this is quickly becoming an obsolete design standard due to climate change \citep{ML cooling paper}. The intention with the code development for this community will however require cooling in buildings soon.  
 
 \subsubsection*{Retrofit and New Development Trajectory}
-The majority of Wesbrook has been completed as of 2020, with 50\% of the total expected build-out of 725,925 sqm. remaining between now and the mid-21st century. As indicated in Figure \ref{fig:wesbrook_base} the yet-to-be-completed development will be assessed in the model through the future periods. While in less centrally planned and developed communities tackling development uncertainty would require a more thorough economic model, the Wesbrook planning and development scheme is well laid out in master-planning documents \citep{Wesbrook masterplan}. The simulation framework is built from a baseline in 2020 of the completed development up to 2020. Two more time periods were simulated, the first in 2050 and then in 2080. The base-case for each time period assumes that the stock of buildings that were simulated in the previous time-step (existing) were retrofitted with similarly performing technologies and components. New buildings are however built to a performance profile modeled after the code trajectory referenced in Table \ref{tab:code_trajectory}. While it is expected that the future will hold more advanced technologies, code development is capped at the introduction of the NZER requirements.
+The majority of Wesbrook has been completed as of 2020, with 50\% of the total expected build-out of 725,925 sqm. remaining between now and the mid-21st century. As indicated in Figure \ref{fig:wesbrook_base} the yet-to-be-completed development will be assessed in the model through the future periods. While in less centrally planned and developed communities tackling development uncertainty would require a more thorough economic model, the Wesbrook planning and development scheme is well laid out in master-planning documents \citep{Wesbrook masterplan}. The simulation framework is built from a baseline in 2020 of the completed development up to 2020. Two more time periods were simulated, the first in 2050 and then in 2080. The base-case for each time period assumes that the stock of buildings that were simulated in the previous time-step (existing) were retrofitted with similarly performing technologies and components. New buildings are however built to a performance profile modeled after the changes in the municipalities building performance code (\citep{REAP}). While it is expected that the future will hold more advanced technologies, code development is capped at the introduction of the NZER requirements.
 
-\begin{table*}[h]
-    \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
-    \caption{The first two-column table.}
-    \label{tab:code_trajectory}
-    \centering
-    \begin{tabular}{ | c | c | c | }
-        \hline
-        \bf{Heading 1} & \bf{Heading} 2 & \bf{Heading 3} \\
-        \hline
-        Entry 1 & Entry 2 & Entry 3 \\
-        \hline
-    \end{tabular}
-    \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
-\end{table*}
+% \begin{table*}[h]
+%     \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
+%     \caption{The first two-column table.}
+%     \label{tab:code_trajectory}
+%     \centering
+%     \begin{tabular}{ | c | c | c | }
+%         \hline
+%         \bf{Year} & \bf{Code Name} 2 & \bf{Performance Note} \\
+%         \hline
+%         2005 & REAP2.1 & Wall U-Value = 0.4 W/m²K \\
+%         \hline
+%         2005 & REAP2.1 & Wall U-Value = 0.4 W/m²K \\
+%         \hline
+%         2005 & REAP2.1 & Wall U-Value = 0.4 W/m²K \\
+%         \hline
+%         2005 & REAP2.1 & Wall U-Value = 0.4 W/m²K \\
+%         \hline
+%     \end{tabular}
+%     \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
+% \end{table*}
 
 \subsection*{Mitigation and adaptation decision tools}
 \citet{Rysanek MACC} expanded on the use of marginal abatement cost curves as a tool for planning retrofit pathways in single building optimization. The authors commentary was that by failing to consider technical and economic interactions MACCs such as those proposed by \citet{Mckinnsey} were inauthentic. Without accounting for the additionality of measures many MACCs fall into this grouping and limit their overall effectiveness. \citet{kesicki} acknowledges temporal interactions as an additional dimension that need to be considered when constructing MACCs. Traditionally MACCs were developed for annual-planning and more recently, as ambition has grown, so too have their temporal scales. These interactions can be summarized as understanding how investments made in the past may affect the outcome of the MACC, similar to the issue of technical and economic interactions. In planning buildings or infrastructure with MACCs this becomes a significant feature to consider as selecting investments to implement, one typically does so along an investment pathway. 
@@ -156,22 +162,22 @@ The simulation framework utilizes an extension of the City Energy Analyst (CEA) 
 
 The urban building energy model (UBEM) consists of a base-case of development and two future states of development, one in 2050 and another in 2080. The base-case was simulated once to tune the model. Each of the future states of development were simulated once for each combination of strategies under both climate change scenarios for a total of 1024 simulations.  
 
-The UBEMs are low-level of detail geometrically described by their heights above and below ground, window to wall ratio, and composition of envelope, HVAC, and energy supply traits, described in full in Table \ref{tab:model_parameters}. 
+The UBEMs are low-level of detail geometrically described by their heights above and below ground, window to wall ratio, and composition of envelope, HVAC, and energy supply traits. 
 
-\begin{table}[ht]
-    \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
-    \caption{Example of a table.}
-    \label{tab:model_parameters}
-    \centering
-    \begin{tabular}{| c | c | c | }
-        \hline
-        \bf{Heading 1} & \bf{Heading} 2 & \bf{Heading 3} \\
-        \hline
-        Entry 1 & Entry 2 & Entry 3 \\
-        \hline
-    \end{tabular}
-    \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
-\end{table}
+% \begin{table}[ht]
+%     \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
+%     \caption{Example of a table.}
+%     \label{tab:model_parameters}
+%     \centering
+%     \begin{tabular}{| c | c | c | }
+%         \hline
+%         \bf{Heading 1} & \bf{Heading} 2 & \bf{Heading 3} \\
+%         \hline
+%         Entry 1 & Entry 2 & Entry 3 \\
+%         \hline
+%     \end{tabular}
+%     \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
+% \end{table}
 
 \subsection*{Boundary conditions}
 The EnergyPlus Weather (EPW) file for Vancouver, BC produced by \citet{CWEC 2016 citation} was morphed, following the algorithms set out by \citet{Belcher} and expanded upon by \citet{CCworldweathergen}. These methods utilize the monthly delta of a region's between historical climate models and a projected pathway \citep{SSPs} to adjust the hourly values contained in an EPW file. Variations on the morphing process have been found, accounting for different shortcomings or the availability of more resolute climate model data to describe a region's specific topographic or climatic uniqueness that may not be captured in a typical climate model's often 100km x 100km grid.
@@ -205,44 +211,36 @@ Adaptation was considered as the capacity of a building to remain in its comfort
 
 %---------------------------------------------------------------------------------------
 \section*{Results}
-The simulation procedure was executed for 1024 iterations, producing hourly demand results for each building within the simulation space, as well as annual cost and emissions results for each building. For iterations in which rooftop-photovoltaic was an option a set of results was generated to be used in correcting total grid-demand for the electricity generated by the rooftop-photovoltaic.  
+The simulation procedure was executed for 1024 iterations, producing hourly demand results for each building within the simulation space, as well as annual cost and emissions results for each building. For iterations in which rooftop-photovoltaic was an option a set of results was generated to be used in correcting total grid-demand for the electricity generated by the rooftop-photovoltaic. From these iterations several MACCs were constructed in Figures \ref{fig:MACC_budget}, \ref{fig:MACC_threshold}, \ref{fig:MACC_true_noDH}, and \ref{fig:MACC_true_DH}. These are discussed at more in the following sections but differ in that they are constructed following two logics. The first two are \textit{illustrative} MACCs in that they present a set of possible interventions, but not necessarily a pathway through which those interventions can be connected. The latter two are \textit{true} MACCs in that each bar represents a singular strategy where the MAC considers the economic and technical impacts of the other presented strategies and those that may be included in the strategy set but are not included in the MAC, as they do not abate carbon by themselves, as seen in Figures \ref{fig:MACC_true_noDH_waterfall} and \ref{fig:MACC_true_DH_waterfall}. 
 
+\begin{figure}[hbpt]
+    \centering
+    \includegraphics[scale=1]{figures/budget_macc.eps}
+    \caption{Illustrative MACC made assuming a budget of \$11 million in net cost was permitted for any plotted strategy-set.}
+    \label{fig:MACC_budget}
+\end{figure}
+
+\begin{figure}[hbpt]
+    \centering
+    \includegraphics[scale=1]{figures/threshold_macc.eps}
+    \caption{Illustrative MACC made assuming an emissions reduction threshold of 80\% was necessary for any plotted strategy-set.}
+    \label{fig:MACC_threshold}
+\end{figure}
 
 \subsection*{General Performance}
-Figure \ref{fig:joint_plot} displays net-cost and gross emissions for each iteration within each of the four scenarios. Climate change does not appear to have a large impact on decarbonisation efforts. A warmer climate may even contribute to more emissions-performance at a lower cost. 
+Figure \ref{fig:cross_plot} displays net-cost and gross emissions for each iteration within each of the four scenarios. Climate change does not appear to have a large impact on decarbonisation efforts. A warmer climate may even contribute to more emissions-performance at a lower cost. 
 
 \begin{figure}[hbpt]
     \centering
     \includegraphics[scale=1.0]{figures/general_results.eps}
-    \caption{General results from the iterations.}
-    \label{fig:joint_plot}
+    \caption{General results from the iterations presented across total emissions over 30 years and net 30-year total annualized cost.}
+    \label{fig:cross_plot}
 \end{figure}
 
 \subsection*{Visualizing decision making}
 Marginal abatement cost and the adaptation metric were plotted to evaluate the Pareto front of each scenario. For each of the four combinations of development and climate change pathway, Figure \ref{fig:optimal_plots} highlights the best performing set of experiments. The charts are created under that assumption that only one strategy can be implemented at a time, with the topmost row containing all 255 experiments for each scenario and the following rows one less strategy implemented until the bottom most row which contains only a single strategy implemented. This presentation format allows us to view the optimal target and then evaluate how to achieve that by selecting strategy combinations in reverse, as suggested by the overlaid pathway. The lines in Figure \ref{fig:pareto-front} represent the set of optimal combinations for that particular group. In several cases no optimum set is reached due their only being one optimum. As a decision-making tool these types of graphs allow us to compare two base-metrics for economic decision making about mitigation and the effectiveness of the strategies as adaptation efforts.
 
-\begin{figure*}[hbpt]
-    \centering
-    \includegraphics[scale=0.8]{figures/optimal_plots.eps}
-    \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
-    \label{fig:pareto_plot}
-\end{figure*}
-
-MACCs were drawn as another form of visualising decision making. Figure \ref{fig:MACC_budget} is not a \textit{true} MACC in that you can only implement one of the bars. However, it improves on previous \textit{illustrative} MACCs in that the bars do not unnecessarily represent single strategy interventions, but rather a set of strategies. It was drawn to assist in planning under the assumption that planners are expecting a worst-case climate change scenario by the end of the century and have set a budget of an additional \$11,000,000 that could be invested across the development on mitigation and adaptation strategies. The drawn MACC then presents every possible combination under the development and climate change trajectory that falls below the budget, selecting XXX. Another MACC, not \textit{true} was drawn, Figure \ref{fig:MACC_threshold} assuming an emissions reduction threshold of 80\% by 2050 under the best-case climate scenario. 
-
-\begin{figure}[hbpt]
-    \centering
-    \includegraphics[scale=0.8]{figures/budget_macc.eps}
-    \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
-    \label{fig:MACC_budget}
-\end{figure}
-
-\begin{figure}[hbpt]
-    \centering
-    \includegraphics[scale=0.8]{figures/threshold_macc.eps}
-    \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
-    \label{fig:MACC_budget}
-\end{figure}
+MACCs were drawn as another form of visualising decision making. Figure \ref{fig:MACC_budget} is not a \textit{true} MACC in that you can only implement one of the bars. However, it improves on previous \textit{illustrative} MACCs in that the bars do not unnecessarily represent single strategy interventions, but rather a set of strategies. It was drawn to assist in planning under the assumption that planners are expecting a worst-case climate change scenario by the end of the century and have set a budget of an additional \$11,000,000 that could be invested across the development on mitigation and adaptation strategies. The drawn MACC then presents every possible combination under the development and climate change trajectory that falls below the budget, selecting XXX. Another \textit{illustrative} MACC was drawn, seen in Figure \ref{fig:MACC_threshold} assuming an emissions reduction threshold of 80\% by 2050 under the best-case climate scenario. 
 
 Two \textit{true} MACCs emerged in this study. The first represents a strategy-set that was chosen based on a high degree of adaptability present in, while also having a sizeable decrease in emissions. This was done under the worst-case climate scenario and the selected strategy-set (00011111) is highlighted in Figure \ref{fig:pareto_plot}. Figure \ref{fig:MACC_true_noDH_waterfall} describes how each strategy contributes to the overall decrease in emissions. The MACC is shown in Figure \ref{fig:MACC_true_noDH} where the first strategy, the installation of heat pumps to service space heating and cooling as well as domestic hot water, contributes to the bulk of the emissions reduction. This is due to the impact that moving away from the district heating system, which has the potential to use natural gas if heating and DHW load exceeds the district's heat pump capacity. The Figure has been altered in the vertical and horizontal access to then compare the scale of the remaining reduction measures, as only three measures actually contribute to emissions reductions. This point will be returned to more in the discussion, but raises that question about affordable marginal cost for significant abatement after fuel-switching has been achieved. This scenario only achieves 67\% emissions reduction over the baseline by 2080.
 
@@ -275,6 +273,14 @@ A second \textit{true} MACC was generated under to abate as many emissions as po
     \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
     \label{fig:MACC_true_DH_waterfall}
 \end{figure}
+
+
+\begin{figure*}[hbpt]
+    \centering
+    \includegraphics[scale=0.8]{figures/optimal_plots.eps}
+    \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
+    \label{fig:pareto_plot}
+\end{figure*}
 
 %---------------------------------------------------------------------------------------
 \section*{Discussion}
