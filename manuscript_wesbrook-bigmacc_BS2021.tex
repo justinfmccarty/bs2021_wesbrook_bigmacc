@@ -19,7 +19,6 @@ columnsep=0.8cm]{geometry}
 \usepackage{listings}
 \usepackage{caption}
 \usepackage{subcaption}
-
 \usepackage{tabularx}
 %-----------------------------SET SKIP SPACES -------------------------------------------------------------------
 \setlength{\abovecaptionskip}{0pt}
@@ -152,7 +151,7 @@ The majority of Wesbrook has been completed as of 2020, with 50\% of the total e
 \subsection*{Mitigation and adaptation decision tools}
 \citet{rysanek_using_2013} expanded on the use of marginal abatement cost curves as a tool for planning retrofit pathways in single building optimization. The authors commentary was that by failing to consider technical and economic interactions MACCs such as those proposed by \citet{mckinsey__co_climate_2010} were more \textit{illustrative} than planning tools. Without accounting for the additionality of measures many MACCs fall into this grouping and limit their overall effectiveness. \citet{kesicki_marginal_2012} acknowledges temporal interactions as an additional dimension that need to be considered when constructing MACCs. Traditionally MACCs were developed for annual-planning and more recently, as ambition has grown, so too have their temporal scales. These interactions can be summarized as understanding how investments made in the past may affect the outcome of the MACC, similar to the issue of technical and economic interactions. In planning buildings or infrastructure with MACCs this becomes a significant feature to consider as selecting investments to implement, one typically does so along an investment pathway. 
 
-It is also of particular importance when developing infrastructure or buildings to consider the impact of a changing climate. Adaptation is prevalent in designing buildings in proximity to rising seas, with strategies ranging from hard measures such as levies and dams to soft measures such as wetland restoration \citep{mimura_adaptation_nodate}. Evidence is pointing to the need to consider other impacts, such as overheating risk due to generally warmer days, nights with less cooling capacity, and more intense heat waves \citep{lomas_overheating_2017,rysanek_forecasting_2021}. Measuring adaptation is a contentious field, as what defines successful adaptation is not as simple to calculate as net carbon emissions \citep{noble_adaptation_2014}. \citet{brooks_tracking_2011} suggests several general criteria by which successful adaptation can be assessed: feasibility, efficacy/effectiveness, efficiency, acceptability/legitimacy, equity, and sustainability. The same authors also discuss the concept of \textit{Maladaptation}, or the inadvertent increase in vulnerability to climate change as a result of development, which has equal importance to adaptation planning of buildings. For all criteria though, measures begin with assessing vulnerability of a subject to a stressor or collection of stressors. In the case of coastal development, a building's adaptive capacity and success can be measured by its vulnerability to increasingly intense sea level rise and storm surge. In the case of this study the stressor is heat gain and the vulnerability of a building to overheating. 
+It is also of particular importance when developing infrastructure or buildings to consider the impact of a changing climate. Adaptation is prevalent in designing buildings in proximity to rising seas, with strategies ranging from hard measures such as levies and dams to soft measures such as wetland restoration \citep{pachauri_climate_2015}. Evidence is pointing to the need to consider other impacts, such as overheating risk due to generally warmer days, nights with less cooling capacity, and more intense heat waves \citep{lomas_overheating_2017,rysanek_forecasting_2021}. Measuring adaptation is a contentious field, as what defines successful adaptation is not as simple to calculate as net carbon emissions \citep{pachauri_climate_2015}. \citet{brooks_tracking_2011} suggests several general criteria by which successful adaptation can be assessed: feasibility, efficacy/effectiveness, efficiency, acceptability/legitimacy, equity, and sustainability. The same authors also discuss the concept of \textit{Maladaptation}, or the inadvertent increase in vulnerability to climate change as a result of development, which has equal importance to adaptation planning of buildings. For all criteria though, measures begin with assessing vulnerability of a subject to a stressor or collection of stressors. In the case of coastal development, a building's adaptive capacity and success can be measured by its vulnerability to increasingly intense sea level rise and storm surge. In the case of this study the stressor is heat gain and the vulnerability of a building to overheating. 
 
 %---------------------------------------------------------------------------------------
 \section*{Methods}
@@ -223,19 +222,22 @@ Adaptation was considered as the capacity of a building to remain in its comfort
 \section*{Results}
 The simulation procedure was executed for 1024 scenarios, producing hourly demand results for each building within the simulation space, as well as annual cost and emissions results for each building. For iterations in which rooftop-photovoltaic was an option a set of results was generated to be used in correcting total grid-demand for the electricity generated by the rooftop-photovoltaic. A final open-database is available in the repository mentioned in the abstract. From these iterations several MACCs were constructed in Figures \ref{fig:MACC_budget}, \ref{fig:MACC_threshold}, \ref{fig:MACC_true_noDH}, and \ref{fig:MACC_true_DH}. These are discussed at more in the following sections but differ in that they are constructed following two logics. The first two are \textit{illustrative} MACCs in that they present a set of possible interventions, but not necessarily a pathway through which those interventions can be connected. The latter two are \textit{true} MACCs in that each bar represents a singular strategy where the MAC considers the economic and technical impacts of the other presented strategies and those that may be included in the strategy set but are not included in the MAC, as they do not abate carbon by themselves, as seen in Figures \ref{fig:MACC_true_noDH_waterfall} and \ref{fig:MACC_true_DH_waterfall}. 
 
-\begin{figure}[hbpt]
-    \centering
-    \includegraphics[scale=1]{figures/budget_macc.eps}
+
+\begin{figure*}
+\centering
+\begin{minipage}[b]{.45\textwidth}
+    \hspace*{-1.05cm}\includegraphics[scale=1.0]{figures/budget_macc.eps}
     \caption{Illustrative MACC made assuming a budget of \$11 million in net cost was permitted for any plotted strategy-set.}
     \label{fig:MACC_budget}
-\end{figure}
-
-\begin{figure}[hbpt]
-    \centering
-    \includegraphics[scale=1]{figures/threshold_macc.eps}
+\end{minipage}\qquad
+\begin{minipage}[b]{.45\textwidth}
+    \hspace*{-.4cm}\includegraphics[scale=1.0]{figures/threshold_macc.eps}
     \caption{Illustrative MACC made assuming an emissions reduction threshold of 80\% was necessary for any plotted strategy-set.}
     \label{fig:MACC_threshold}
-\end{figure}
+\end{minipage}
+\end{figure*}
+
+
 
 \subsection*{General Performance}
 Figure \ref{fig:cross_plot} displays net-cost and gross emissions for each iteration within each of the four scenarios. Three groups tend to emerge with the most start difference being that one group is emitting far more than the other two. This is a result of those scenarios still relying on the natural-gas based heating system. This difference is apparent across both climate change pathways, leading to a conslusion that the impacts of more severe climate are not disrupting mitigation efforts in the model. It appears to enable it to an extent. Comparing the highlighted groups of similar scenarios between the best-case and worst-case scenarios a decrease in lifetime emissions is apparent. We suspect that this is due to the warmer temperatures reducing the heating seasons as well as enabling the district to remain below the heat pump capacity more of the year. Figure \ref{fig:comapre_district} shows this in the operation of the district in the baseline cases from each climate scenario.
@@ -252,36 +254,50 @@ Marginal abatement cost and the adaptation metric were plotted to evaluate the P
 
 MACCs were drawn as another form of visualising decision making. Figure \ref{fig:MACC_budget} is not a \textit{true} MACC in that you can only implement one of the strategy-sets, represented by the bars. However, it improves on previous \textit{illustrative} MACCs in that the bars do not unnecessarily represent single strategy interventions, but rather a set of strategies. It was drawn to assist in planning under the assumption that planners are expecting a worst-case climate change scenario by the end of the century and have set a budget of an additional \$11,000,000 that could be invested across the development on mitigation and adaptation strategies. The drawn MACC then presents every possible combination under the development and climate change trajectory that falls below the budget, selecting \textit{01011001} at the marginal abatement cost of -\$123. Another \textit{illustrative} MACC was drawn, seen in Figure \ref{fig:MACC_threshold} assuming an emissions reduction threshold of 80\% by 2050 under the best-case climate scenario. All bars represet strategy-sets that would reach that reductions total, ultimately \textit{0111000} is chosen at the marginal abatement cost of -\$50.
 
-Of the two \textit{true} MACCs used in this study, the first represents a strategy-set that was chosen based on a high degree of adaptability present, while also abating a large amount of emissions. This was done under the worst-case climate scenario and the selected strategy-set \textit{00011111} is highlighted in Figure \ref{fig:pareto_plot}. Figure \ref{fig:MACC_true_noDH_waterfall} describes how each strategy contributes to the overall decrease in emissions. The MACC is shown in Figure \ref{fig:MACC_true_noDH} where the first strategy, the installation of heat pumps in all buildings to service space heating and cooling as well as domestic hot water, contributes to the bulk of the emissions reduction. This is due to the impact that moving away from the district heating system, which has the potential to use natural gas if heating and DHW load exceeds the district's heat pump capacity. The majority of the abatement can be attributed to the heat pump strategy, removing natural gas from the fuel mix, while the other strategies can be said to lending to adaptability. This point about the fuel mix will be returned to more in the discussion, but raises that question about how to affordably meet zero-carbon targets after fuel-switching has been achieved. This scenario only achieves 67\% emissions reduction over the baseline by 2080.
+Of the two \textit{true} MACCs used in this study, the first represents a strategy-set that was chosen based on a high degree of adaptability present, while also abating a large amount of emissions. This was done under the worst-case climate scenario and the selected strategy-set \textit{00011111} is highlighted in Figure \ref{fig:pareto_plot}. Figure \ref{fig:MACC_true_noDH} describes how each strategy contributes to the overall decrease in emissions. The MACC is shown in Figure \ref{fig:MACC_true_noDH} where the first strategy, the installation of heat pumps in all buildings to service space heating and cooling as well as domestic hot water, contributes to the bulk of the emissions reduction. This is due to the impact that moving away from the district heating system, which has the potential to use natural gas if heating and DHW load exceeds the district's heat pump capacity. The majority of the abatement can be attributed to the heat pump strategy, removing natural gas from the fuel mix, while the other strategies can be said to lending to adaptability. This point about the fuel mix will be returned to more in the discussion, but raises that question about how to affordably meet zero-carbon targets after fuel-switching has been achieved. This scenario only achieves 67\% emissions reduction over the baseline by 2080.
 
-\begin{figure}[hbpt]
-    \centering
-    \includegraphics[scale=1]{figures/true_macc_noDH_waterfall.eps}
-    \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
-    \label{fig:MACC_true_noDH_waterfall}
-\end{figure}
+% \begin{figure}[hbpt]
+%     \centering
+%     \includegraphics[scale=1]{figures/true_macc_noDH_waterfall.eps}
+%     \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
+%     \label{fig:MACC_true_noDH_waterfall}
+% \end{figure}
 
-\begin{figure}[hbpt]
+% \begin{figure}[hbpt]
+%     \centering
+%     \includegraphics[scale=0.8]{figures/true_macc_noDH.eps}
+%     \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
+%     \label{fig:MACC_true_noDH}
+% \end{figure}
+
+\begin{figure}[t]
     \centering
-    \includegraphics[scale=0.8]{figures/true_macc_noDH.eps}
+    \includegraphics[scale=0.8]{figures/true_macc_noDH_waterfall_comb.eps}
     \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
     \label{fig:MACC_true_noDH}
 \end{figure}
 
-A second \textit{true} MACC was generated under the plan to abate as many emissions as possible while continuing to use the district heating system, under the worst-case climate scenario. Figure \ref{fig:MACC_true_DH_waterfall} describes how each measure contributes to overall emissions reduction. The resulting MACC shows a more consistent scale of MAC and overall abatement between measures that the previous example, but total abatement is only 8\% of the baseline's emissions.
+A second \textit{true} MACC was generated under the plan to abate as many emissions as possible while continuing to use the district heating system, under the worst-case climate scenario. Figure \ref{fig:MACC_true_DH} describes how each measure contributes to overall emissions reduction. The resulting MACC shows a more consistent scale of MAC and overall abatement between measures that the previous example, but total abatement is only 8\% of the baseline's emissions.
 
-\begin{figure*}[hbpt]
+% \begin{figure*}[hbpt]
+%     \centering
+%     \includegraphics[scale=0.8]{figures/true_macc_dh.eps}
+%     \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
+%     \label{fig:MACC_true_DH}
+% \end{figure*}
+
+% \begin{figure}[hbpt]
+%     \centering
+%     \includegraphics[scale=1]{figures/true_macc_DH_waterfall.eps}
+%     \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
+%     \label{fig:MACC_true_DH_waterfall}
+% \end{figure}
+
+\begin{figure}[t]
     \centering
-    \includegraphics[scale=0.8]{figures/true_macc_dh.eps}
+    \includegraphics[scale=0.8]{figures/true_macc_DH_waterfall_comb.eps}
     \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
     \label{fig:MACC_true_DH}
-\end{figure*}
-
-\begin{figure}[hbpt]
-    \centering
-    \includegraphics[scale=1]{figures/true_macc_DH_waterfall.eps}
-    \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
-    \label{fig:MACC_true_DH_waterfall}
 \end{figure}
 
 
@@ -325,13 +341,7 @@ This document is a summary of various documents from previous Building Simulatio
 %here starts the references
 \bibliographystyle{BS2021}
 \bibliography{bs2021_ref}
-\newpage
-\onecolumn
-Please \textbf{do not} include this disclaimer in your paper.  You will be required to accept these conditions when you  submit your paper via the web site.
-
-\begin{figure*}[ht]
-\centering
-
-\end{figure*}
-
+% \newpage
+% \onecolumn
+% Please \textbf{do not} include this disclaimer in your paper.  You will be required to accept these conditions when you  submit your paper via the web site.
 \end{document}
