@@ -103,7 +103,7 @@ The resulting simulation database can be used to assess decarbonization pathways
 
 The literature on MACCs has not yet involved adaptation strategies as a form of emissions mitigation. However, as noted earlier adaptation and mitigation strategies, may be decided upon from the same funding perspective and therefore need to be considered together. Therefore this study integrates several adaptations strategies into the simulation process. These adaptation strategies are evaluated on the basis of marginal abatement cost, as well as their influence on adaptation within the development. Therefore, mitigation strategies are equally evaluated as adaptations strategies. 
 
-This study will test the performance of eight strategies alongside one development pathway and two climate change pathways, simulated at two points in time (2050 and 2080), for a case study community in southwestern Canada; Wesbrook Village, Vancouver, British Columbia (BC). A baseline urban building energy model (UBEM) was created to represent the development of the community to-date, shown in Figure \ref{fig:wesbrook_base} alongside the future development and climate change pathways.
+This study will test the performance of eight strategies alongside one development pathway and two climate change pathways, simulated at two points in time (2050 and 2080), for a case study community in southwestern Canada; Wesbrook Village, Vancouver, British Columbia (BC). A baseline urban building energy model (UBEM) was created to represent the development of the community to-date.
 
 % \begin{figure}
 %     \centering
@@ -120,8 +120,7 @@ This study will test the performance of eight strategies alongside one developme
 % \end{figure}
 
 \subsection*{Wesbrook Village} 
-Simulation will be exhaustive of the different combinations in the pool of strategies and scenarios allowing each strategy to be measured independently as well as determine combinations that are more or less efficient than individual implementation under the entire range of uncertainty, diagrammed in Figure \ref{fig:sample_sequence}.
-
+% Simulation will be exhaustive of the different combinations in the pool of strategies and scenarios allowing each strategy to be measured independently as well as determine combinations that are more or less efficient than individual implementation under the entire range of uncertainty.
 Wesbrook Village and the neighbouring Stadium Road are new communities that expected to reach 715,925 sqm. of residential floor space and 10,000 sqm. of non-residential floor space by 2040. It is the part of a larger community plan led by the development arm of The University of British Columbia (UBC) \citep{ubc_planning_ubc_2020_SR, ubc_planning_ubc_2020_wb}. The baseline for this study is taken at the end of 2020, where the development has completed its fifteenth year. The development, referred to throughout the study as \textit{Wesbrook}, is a compelling case study as it can be considered a model of medium-density new development for BC and North America at large. Building code for the community is modeled after the aspirational provincial code made more strict through a continuous review with the most recent version taking effect in January 2021 and targeting net-zero energy ready (NZER) by 2032; NZER buildings are built such that with the addition of solar panels or renewable technologies they would consume only as much energy as they produce. The energy system is a mixture of grid-connected systems, in building natural gas boilers, and a district heating system that supplies hydronic baseboard and floor heating systems as well as domestic hot water. This district heating system, described in the context of a UBEM in \citet{mccarty_accepted_2020}, is designed to switch from natural gas boilers to heat pumps amplified by waste heat from a nearby particle accelerator facility but still with peaking boilers fueled by natural gas. Cooling services have yet to considered in spec-residential development in BC as the climate has historically allowed comfort to be achieved in the peak of summer through natural ventilation; research however indicates that this may become an obsolete design standard due to climate change \citep{rysanek_forecasting_2021}. The intention with the code development for this community is that cooling will be required within a decade \citep{noauthor_residential_2021}.
 
 \subsubsection*{Retrofit and New Development Trajectory}
@@ -187,14 +186,14 @@ It is also of particular importance when developing infrastructure or buildings 
 \end{table*}
 
 \subsection*{Urban Building Energy Model}
-The simulation framework utilizes an extension of the City Energy Analyst (CEA) demand forecasting model \citep{fonseca_integrated_2015,fonseca_city_2016,the_cea_team_city_2020}. The CEA enables simulations of urban and neighborhood scale energy systems, as well as independently operating buildings. It is a hybrid dynamic statistical model that allows for efficient processing times, a necessity for large simulation sets such as the one in this study. These urban building energy models (UBEM) are low-level of detail geometrically described by their heights above and below ground, window to wall ratio, and composition of envelope, HVAC, and energy supply traits. 
+The simulation framework utilizes an extension of the City Energy Analyst (CEA) demand forecasting model \citep{fonseca_city_2016,the_cea_team_city_2020}. The CEA enables simulations of urban and neighborhood scale energy systems, as well as independently operating buildings. It is a hybrid dynamic statistical model that allows for efficient processing times, a necessity for large simulation sets such as the one in this study. These urban building energy models (UBEM) are low-level of detail geometrically described by their heights above and below ground, window to wall ratio, and composition of envelope, HVAC, and energy supply traits. 
 
 The UBEMs consists of a base-case of development and two future states of development, one in 2050 and another in 2080. The base-case was simulated once to tune the model. Each of the future states of development were simulated once for each combination of strategies under both climate change scenarios for a total of 1024 simulations.  
 
 \subsection*{Boundary conditions}
 The EnergyPlus Weather (EPW) file for Vancouver, BC produced by \citet{cwec_2016} was morphed, following the algorithms set out by \citet{belcher_constructing_2005} and expanded upon by \citet{jentsch_climate_2008}. For a variable such as temperature being morphed, the monthly delta of a region's historical climate models and a future climate model is calculated to apply to one of several morphing algorithms to adjust the hourly values contained in an EPW file. Variations on the morphing process have been found, accounting for different shortcomings or the availability of more resolute climate model data to describe a region's specific topographic or climatic uniqueness that may not be captured in a typical climate model's often 100km x 100km grid.
 
-The morphing process in this study differs from previous examples in that it was able to make use of the latest generation of global climate models \citep{oneill_scenario_2016}. The morphing process took into account an ensemble of 24 models for calculating projected hourly temperature, solar radiation, cloud cover, relative humidity, wind speed, and air pressure. Two climate pathways are followed, discussed in this paper as the \textit{best-case} and \textit{worst-case} scenarios. These are \textit{Shared Socioeconomic Pathway 1} (SSP126) and \textit{Shared Socioeconomic Pathway 5} (SSP585)
+The morphing process in this study differs from previous examples in that it was able to make use of the latest generation of global climate models. The morphing process took into account an ensemble of 24 models for calculating projected hourly temperature, solar radiation, cloud cover, relative humidity, wind speed, and air pressure. Two climate pathways are followed, discussed in this paper as the \textit{best-case} and \textit{worst-case} scenarios. These are \textit{Shared Socioeconomic Pathway 1} (SSP126) and \textit{Shared Socioeconomic Pathway 5} (SSP585)
 defined in \citet{oneill_roads_2017}. The four morphed EPWs are described in Figure \ref{fig:weatherfiles}.
 
 \subsection*{Strategies}
@@ -211,7 +210,7 @@ Components and technology costs was gathered through several data sources, \cite
 \subsection*{Operational and embodied carbon}
 Operational carbon is taken as the carbon emitted over a 30 year period from each building as a result of energy consumption for plug-load, heating and cooling, and ventilation service. BC's electrical grid is served by a hydroelectric power provider and is a low-carbon source, at 10.8 kgCO2e/kWh \citep{bc_ministry_of_envrionmetn_and_climate_change_strategy_bc_2019}. The district heating provider intends for the system to fed entirely from natural gas boilers until 2023 at which point the transition to a more complex system of natural gas peaking boilers and waste heat fed heat pumps will be created. This system was previously modelled in \citet{mccarty_accepted_2020}. Its carbon intensity was estimated to be between an annual average of 10.8 and 180.0 kgCO2e/kWh. The range is due to fluctuations in the amount of natural gas used in the system, as well as the amount of waste heat available to create a more efficient lift in the heat pumps. Figure \ref{fig:district_heat_explainer} describes a baseline case of performance with the system. Limits imposed on heat pump and waste heat capacity are drawn from the operator in \citet{noauthor_infrastructure_2014}.
 
-The embodied carbon of components and technologies of the models was gathered, similarly to the cost data, from a variety of sources \citep{jones_ice_2019, droguett_embodied_2019,rodriguez_embodied_2019,c-change_labs_embodied_2020}, and are cradle-to-gate accounts of embodied carbon. The limitation with disparate data sources in this portion of the research generally has to do with the geography of the components involved. An effort was made to first gather data from sources specific the BC or the Pacific Northwest region of the US and than from North America as a whole, before seeking data from further away. 
+The embodied carbon of components and technologies of the models was gathered, similarly to the cost data, from a variety of sources \citep{jones_ice_2019, droguett_embodied_2019,c-change_labs_embodied_2020}, and are cradle-to-gate accounts of embodied carbon. The limitation with disparate data sources in this portion of the research generally has to do with the geography of the components involved. An effort was made to first gather data from sources specific the BC or the Pacific Northwest region of the US and than from North America as a whole, before seeking data from further away. 
 
 \subsection*{Adaptation and mitigation}
 Mitigation was evaluated using the marginal cost of carbon abatement. Marginal abatement cost requires two metrics, the first being the net amount of carbon emitted between a base-case and scenario and the net cost between the base-case and scenario. In this study the base-case is the first iteration of the 256, where no strategies have been applied. Carbon emissions are calculated as the embodied carbon of capital expenditures and the 30-year operating carbon. Cost is the 30-year TAC.
@@ -244,6 +243,7 @@ Figure \ref{fig:cross_plot} displays net-cost and gross emissions for each itera
 
 \begin{figure}[hbt]
     \centering
+    \captionsetup{margin=.5cm}
     \includegraphics[scale=0.8]{figures/general_results_box.eps}
     \caption{General results from the iterations presented across total emissions over 30 years and net 30-year total annualized cost.}
     \label{fig:cross_plot}
@@ -257,7 +257,8 @@ MACCs were drawn as another form of visualising decision making. Figure \ref{fig
 
 \begin{figure}[hbpt]
     \centering
-    \includegraphics[scale=0.8]{figures/true_maccs_waterfalls_both.eps}
+    \captionsetup{margin=.5cm}
+    \includegraphics[scale=0.95]{figures/true_maccs_waterfalls_both.eps}
     \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
     \label{fig:true_macc_both}
 \end{figure}
@@ -285,12 +286,19 @@ A second \textit{true} MACC was generated under the plan to abate as many emissi
 % \end{figure}
 
 
-\begin{figure*}[hbpt]
+% \begin{figure*}[hbpt]
+%     \centering
+%     \includegraphics[scale=0.8]{figures/optimal_plots.eps}
+%     \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
+%     \label{fig:pareto_plot}
+% \end{figure*}
+
+\begin{figure}[hbpt]
     \centering
-    \includegraphics[scale=0.8]{figures/optimal_plots.eps}
+    \includegraphics[scale=0.55]{figures/pareto_plots_585.eps}
     \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
     \label{fig:pareto_plot}
-\end{figure*}
+\end{figure}
 
 %---------------------------------------------------------------------------------------
 \section*{Discussion}
@@ -303,7 +311,7 @@ A major limitation in the framework underpinning this study is the finite space 
 \subsection*{Abatement after fuel-switching}
 The context for this study sets up an interesting proposition within BC. The electrical grid is majority hydroelectric. Emissions within the building sector are therefore driven by natural gas use, either on site or within district systems. The two \textit{true} MACC cases show that in order to reach large reductions over the baseline condition the use of natural gas must be eliminated. This however raises the point of how abatement should continua once the significant reductions are made and systems are then relying on a near-carbon free grid. Future building code intends for new buildings to be net-zero \textit{energy} ready, but this study showed in testing rooftop photovoltaic that for this type of density, just rooftop panels are not going to generate significant amounts of energy or contribute to emissions reductions; in the worst-case climate scenario rooftop panels alone reduced emissions by 4.4\%. 
 
-Additionally building-based sequestration methods offer a potential avenue for meeting net-zero \textit{carbon} goals \citep{skullestad_high-rise_2016, zeitz_comparing_2019}. This study did not consider the Mass Timber strategy to be carbon sequestering, but it is less intensive than cement-based building, leading to between 60 and 300 Tonnes of carbon abated, depending on the development scenario.
+Additionally building-based sequestration methods offer a potential avenue for meeting net-zero \textit{carbon} goals \citep{skullestad_high-rise_2016}. This study did not consider the Mass Timber strategy to be carbon sequestering, but it is less intensive than cement-based building, leading to between 60 and 300 Tonnes of carbon abated, depending on the development scenario.
 
 
 %---------------------------------------------------------------------------------------
