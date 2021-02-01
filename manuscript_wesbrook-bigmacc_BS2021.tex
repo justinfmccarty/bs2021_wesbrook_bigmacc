@@ -92,6 +92,13 @@ Open-source simulation tools can be used to test the sensitivity of different de
 
 Atmospheric concentrations of carbon dioxide are just over 410 parts per million, while recent estimates from the \citet{noauthor_state_2020} situate the Northern Hemisphere’s land and ocean surface temperature anomaly at 1.29°C from baseline (1961-1990). This may not be considered a consistent level of \textit{global warming}, but it does indicate a dangerous warming trend facing human and non-human systems. Climate change impacts are now being recognized as burdens on economic and social systems \citep{frame_climate_2020}. Implementing adaptation strategies within the built environment is necessary to increase social resilience, protect safety and life, and prevent economic damage with the potential to bolster all of the above \citep{schunemann_mitigation_2020}. Simultaneously, the mitigation of present emissions, the abatement of possible future emissions, and the sequestration of atmospheric carbon is necessary to curtail increasingly dangerous and catastrophic levels of warming. This process of carbon drawdown is very familiar within studies of the built environment with strategies posed for transportation, buildings, agriculture, forestry, and other land-uses. Mitigation and adaptation strategies though are rarely evaluated simultaneously in the context of urban development.
 
+\begin{figure*}[hbpt]
+    \centering
+    \includegraphics[scale=0.50]{figures/wesbrook_plan.eps}
+    \caption{The baseline UBEM for Wesbrook Village in BC.}
+    \label{fig:wesbrook_base}
+\end{figure*}
+
 In the presence of limited resources and a range of objectives, the cost and benefit of proposed strategies need to be assessed on their own and while interacting with other strategies, as well as under the uncertainty of climate change and human action. The interaction of strategies is a key factor explored in \citet{rysanek_using_2013}, where exhaustive simulation is applied in the modeling of fifteen individual building retrofit strategies (a total of 32,768 unique combinations). From this, a database of simulated retrofit-specific pathways for a single building can be generated.
 
 Introducing the scale of a neighborhood or even entire city requires a more extensive modelling framework as described above, as well as the consideration of additional sources of model uncertainty attributed to urban-scale matters. No longer would a model be concerned with answering a single question about a single existing building - how do we mitigate the most carbon at the lowest price? Now, the model would  being applied in the context of an existing area where buildings and empty plots could face a \textit{known-unknown} trajectory of either new development, redevelopment, and no change. This brings in the concept of a development timeline during which differing scales of development may occur.
@@ -106,13 +113,6 @@ This study integrates several climate adaptation strategies into the urban-scale
 %     \label{fig:sample_sequence}
 % \end{figure}
 
-\begin{figure*}[hbpt]
-    \centering
-    \includegraphics[scale=0.50]{figures/wesbrook_plan.eps}
-    \caption{The baseline UBEM for Wesbrook Village in BC.}
-    \label{fig:wesbrook_base}
-\end{figure*}
-
 \subsection*{Wesbrook Village} 
 % Simulation will be exhaustive of the different combinations in the pool of strategies and scenarios allowing each strategy to be measured independently as well as determine combinations that are more or less efficient than individual implementation under the entire range of uncertainty.
 Wesbrook Village is a new residential community under construction by the University of British Columbia (UBC) \citep{ubc_planning_ubc_2020_SR, ubc_planning_ubc_2020_wb}. On it completion within the next decade, the community will provide permanent housing for over 25,000 residents of Vancouver, BC primarily in mid-rise (4-6 stories) and high-rise residential towers (15-30 stories). 
@@ -120,38 +120,6 @@ Wesbrook Village is a new residential community under construction by the Univer
  The development, referred to throughout the study as \textit{Wesbrook}, is a compelling case study as it can be considered a model of medium-density new development for BC and North America at large. For example, Wesbrook was developed under the auspices of a progressive building code, overseen by UBC, that targets all new campus residential developments to satisfy net-zero energy ready (NZER) performance levels by 2032.
 
  Buildings of the Wesbrook community make use of mix of energy systems. Some buildings provide space heating using hydronic in-floor radiant systems; some provide space heating via electric baseboard heaters. Some buildings operate dedicated boilers for generating hot water; other buildings receive hot water from a natural gas-fired district energy system.  This district heating system is described in the context of a UBEM in \citet{mccarty_accepted_2020}. Centralized space cooling has not been provided for across the development, but concerns around the potential need for future space cooling is a growing concern for naturally-ventilated buildings in the region \citep{rysanek_forecasting_2021}. With its current building codes, UBC does intend that space cooling may be a required energy service in the community in the next decade \citep{noauthor_residential_2021}.
-
-\subsubsection*{Retrofit and New Development Trajectory}
-The majority of Wesbrook has been completed as of 2020, with 50\% of the total expected build-out of 725,925 sqm. remaining to be constructed. As indicated in Figure \ref{fig:wesbrook_base} the yet-to-be-completed development will be assessed in the model through the future periods. The Wesbrook planning and development scheme is well laid out in master-planning documents \citep{ubc_planning_ubc_2020_wb}. The simulation framework is built from a baseline in 2020 of the completed development up to 2020. Two more time periods are simulated, the first in 2050 and then in 2080. The base-case for each time period assumes that the stock of buildings that were simulated in the previous time-step (existing) were retrofitted with similarly performing technologies and components. New buildings are however built to a performance profile modeled after expected changes in the community's building performance code (\citep{noauthor_residential_2021}). 
-
-% \begin{table*}[h]
-%     \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
-%     \caption{The first two-column table.}
-%     \label{tab:code_trajectory}
-%     \centering
-%     \begin{tabular}{ | c | c | c | }
-%         \hline
-%         \bf{Year} & \bf{Code Name} 2 & \bf{Performance Note} \\
-%         \hline
-%         2005 & REAP2.1 & Wall U-Value = 0.4 W/m²K \\
-%         \hline
-%         2005 & REAP2.1 & Wall U-Value = 0.4 W/m²K \\
-%         \hline
-%         2005 & REAP2.1 & Wall U-Value = 0.4 W/m²K \\
-%         \hline
-%         2005 & REAP2.1 & Wall U-Value = 0.4 W/m²K \\
-%         \hline
-%     \end{tabular}
-%     \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
-% \end{table*}
-
-\subsection*{Mitigation and adaptation decision tools}
-\citet{rysanek_using_2013} expanded on the use of marginal abatement cost curves as a tool for planning retrofit pathways in single building optimization. The authors commentary was that by failing to consider technical and economic interactions MACCs such as those proposed by \citet{mckinsey__co_climate_2010} were more \textit{illustrative} than planning tools. Without accounting for the additionality of measures many MACCs fall into this grouping and limit their overall effectiveness. \citet{kesicki_marginal_2012} acknowledges temporal interactions as an additional dimension that need to be considered when constructing MACCs. Traditionally MACCs were developed for annual-planning and more recently, as ambition has grown, so too have their temporal scales. These interactions can be summarized as understanding how investments made in the past may affect the outcome of the MACC, similar to the issue of technical and economic interactions. In planning buildings or infrastructure with MACCs this becomes a significant feature to consider as selecting investments to implement, one typically does so along an investment pathway. 
-
-It is also of particular importance when developing infrastructure or buildings to consider the impact of a changing climate. Adaptation is prevalent in designing buildings in proximity to rising seas, with strategies ranging from hard measures such as levies and dams to soft measures such as wetland restoration \citep{pachauri_climate_2015}. Evidence is pointing to the need to consider other impacts, such as overheating risk due to generally warmer days, nights with less cooling capacity, and more intense heat waves \citep{lomas_overheating_2017,rysanek_forecasting_2021}. Measuring adaptation is a contentious field, as what defines successful adaptation is not as simple to calculate as net carbon emissions \citep{pachauri_climate_2015}. \citet{brooks_tracking_2011} suggests several general criteria by which successful adaptation can be assessed: feasibility, efficacy/effectiveness, efficiency, acceptability/legitimacy, equity, and sustainability. The same authors also discuss the concept of \textit{Maladaptation}, or the inadvertent increase in vulnerability to climate change as a result of development, which has equal importance to adaptation planning of buildings. For all criteria though, measures begin with assessing vulnerability of a subject to a stressor or collection of stressors. In the case of coastal development, a building's adaptive capacity and success can be measured by its vulnerability to increasingly intense sea level rise and storm surge. In the case of this study the stressor is heat gain and the vulnerability of a building to overheating. 
-
-%---------------------------------------------------------------------------------------
-\section*{Methods}
 
 \begin{table*}[ht]
     \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
@@ -186,6 +154,42 @@ It is also of particular importance when developing infrastructure or buildings 
     \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
 \end{table*}
 
+\subsubsection*{Retrofit and New Development Trajectory}
+The majority of Wesbrook has been completed as of 2020, with 50\% of the total expected build-out of 725,925 sqm. remaining to be constructed. As indicated in Figure \ref{fig:wesbrook_base} the yet-to-be-completed development will be assessed in the model through the future periods. The Wesbrook planning and development scheme is well laid out in master-planning documents \citep{ubc_planning_ubc_2020_wb}. The simulation framework is built from a baseline in 2020 of the completed development up to 2020. Two more time periods are simulated, the first in 2050 and then in 2080. The base-case for each time period assumes that the stock of buildings that were simulated in the previous time-step (existing) were retrofitted with similarly performing technologies and components. New buildings are however built to a performance profile modeled after expected changes in the community's building performance code (\citep{noauthor_residential_2021}). 
+
+% \begin{table*}[h]
+%     \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
+%     \caption{The first two-column table.}
+%     \label{tab:code_trajectory}
+%     \centering
+%     \begin{tabular}{ | c | c | c | }
+%         \hline
+%         \bf{Year} & \bf{Code Name} 2 & \bf{Performance Note} \\
+%         \hline
+%         2005 & REAP2.1 & Wall U-Value = 0.4 W/m²K \\
+%         \hline
+%         2005 & REAP2.1 & Wall U-Value = 0.4 W/m²K \\
+%         \hline
+%         2005 & REAP2.1 & Wall U-Value = 0.4 W/m²K \\
+%         \hline
+%         2005 & REAP2.1 & Wall U-Value = 0.4 W/m²K \\
+%         \hline
+%     \end{tabular}
+%     \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
+% \end{table*}
+
+\subsection*{Mitigation and adaptation decision tools}
+\citet{rysanek_using_2013} expanded on the use of marginal abatement cost curves as a tool for planning retrofit pathways in single building optimization. The authors commentary was that by failing to consider technical and economic interactions MACCs such as those proposed by \citet{mckinsey__co_climate_2010} were more \textit{illustrative} than planning tools. Without accounting for the additionality of measures many MACCs fall into this grouping and limit their overall effectiveness. \citet{kesicki_marginal_2012} acknowledges temporal interactions as an additional dimension that need to be considered when constructing MACCs. Traditionally MACCs were developed for annual-planning and more recently, as ambition has grown, so too have their temporal scales. These interactions can be summarized as understanding how investments made in the past may affect the outcome of the MACC, similar to the issue of technical and economic interactions. In planning buildings or infrastructure with MACCs this becomes a significant feature to consider as selecting investments to implement, one typically does so along an investment pathway. 
+
+It is also of particular importance when developing infrastructure or buildings to consider the impact of a changing climate. Adaptation is prevalent in designing buildings in proximity to rising seas, with strategies ranging from hard measures such as levies and dams to soft measures such as wetland restoration \citep{pachauri_climate_2015}. Evidence is pointing to the need to consider other impacts, such as overheating risk due to generally warmer days, nights with less cooling capacity, and more intense heat waves \citep{lomas_overheating_2017,rysanek_forecasting_2021}. Measuring adaptation is a contentious field, as what defines successful adaptation is not as simple to calculate as net carbon emissions \citep{pachauri_climate_2015}. \citet{brooks_tracking_2011} suggests several general criteria by which successful adaptation can be assessed: feasibility, efficacy/effectiveness, efficiency, acceptability/legitimacy, equity, and sustainability. The same authors also discuss the concept of \textit{Maladaptation}, or the inadvertent increase in vulnerability to climate change as a result of development, which has equal importance to adaptation planning of buildings. For all criteria though, measures begin with assessing vulnerability of a subject to a stressor or collection of stressors. In the case of coastal development, a building's adaptive capacity and success can be measured by its vulnerability to increasingly intense sea level rise and storm surge. In the case of this study the stressor is heat gain and the vulnerability of a building to overheating. 
+
+
+
+%---------------------------------------------------------------------------------------
+\section*{Methods}
+
+
+
 \subsection*{Urban Building Energy Model (UBEM)}
 The simulation framework utilizes an extension of the City Energy Analyst (CEA) demand forecasting model \citep{fonseca_city_2016,the_cea_team_city_2020}. The CEA enables simulations of urban and neighborhood scale energy systems, as well as independently operating buildings. 
 
@@ -213,14 +217,7 @@ A single entire simulation process (1024 iterations) required 64 hours of proces
 \subsection*{Total Annualized Cost}
 Components and technology costs was gathered through several data sources, \citep{noauthor_cpcn_2014,schlueter_3for2_2016,salasovich_energy_2016,kegel_life_nodate,gordian_rsmeans_2020}. Cost is a highly uncertain data point to incorporate into building energy models. Cost is assessed as the net difference between a strategy-set and the baseline, each calculated as the 30-year total annualized cost (TAC) from within the City Energy Analyst, applying a 5\% discount rate.
 
-\subsection*{Operational and embodied carbon}
-Operational carbon is taken as the carbon emitted over a 30 year period from each building as a result of energy consumption for plug-load, heating and cooling, and ventilation service. BC's electrical grid is served by a hydroelectric power provider and is a low-carbon source, at 10.8 kgCO2e/kWh \citep{bc_ministry_of_envrionmetn_and_climate_change_strategy_bc_2019}. The district heating provider intends for the system tobe  fed entirely from natural gas boilers until 2023 at which point the transition to a more complex system of natural gas peaking boilers and electric heat pumps. This system was previously modelled in \citet{mccarty_accepted_2020}. Its carbon intensity was estimated to be between an annual average of 10.8 and 180.0 kgCO2e/kWh. The range is due to fluctuations in the amount of natural gas used in the system, as well as the amount of waste heat available to create a more efficient lift in the heat pumps. Limits imposed on heat pump and waste heat capacity are drawn from the operator in \citet{noauthor_infrastructure_2014}.
-
-The embodied carbon of components and technologies of the models was gathered, similar to the cost data, from a variety of sources \citep{jones_ice_2019, droguett_embodied_2019,c-change_labs_embodied_2020}, and are cradle-to-gate accounts of embodied carbon. The limitation with disparate data sources in this portion of the research generally has to do with the geography of the components involved. An effort was made to first gather data from sources specific the BC or the Pacific Northwest region of the US and than from North America as a whole, before seeking data from further away. 
-
-%---------------------------------------------------------------------------------------
-\section*{Results}
-\begin{figure}[h!]
+\begin{figure}[t!]
     \centering
     \captionsetup{margin=.5cm}
     \includegraphics[scale=0.8]{figures/general_results_box.eps}
@@ -228,7 +225,7 @@ The embodied carbon of components and technologies of the models was gathered, s
     \label{fig:cross_plot}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[t!]
     \centering
     \includegraphics[scale=1.15]{figures/district_heat_charts.eps}
     \caption{Comparing the demand on the partially natural gas fed district heat system across the baseline scenarios in the end of century best- (SSP126) and worst-case (SSP585) scenarios. The highlighted gap between the two curves shows where less natural gas was used in the SSP585 scenario.}
@@ -249,7 +246,15 @@ The embodied carbon of components and technologies of the models was gathered, s
 \end{minipage}
 \end{figure*}
 
-The simulation procedure was executed for 1024 scenarios, producing hourly demand results for each building within the simulation space, as well as annual cost and emissions results for each building. For iterations in which rooftop-photovoltaic was an option a set of results was generated to be used in correcting total grid-demand for the electricity generated by the rooftop-photovoltaic. From these iterations several MACCs were constructed in Figures \ref{fig:MACC_budget}, \ref{fig:MACC_threshold}, and \ref{fig:true_macc_both}. The first two are \textit{illustrative} MACCs in that they present a set of possible interventions, but not necessarily a pathway through which those interventions can be connected. The latter two are \textit{true} MACCs as described in \ref{fig:true_macc_both}.
+\subsection*{Operational and embodied carbon}
+Operational carbon is taken as the carbon emitted over a 30 year period from each building as a result of energy consumption for plug-load, heating and cooling, and ventilation service. BC's electrical grid is served by a hydroelectric power provider and is a low-carbon source, at 10.8 kgCO2e/kWh \citep{bc_ministry_of_envrionmetn_and_climate_change_strategy_bc_2019}. The district heating provider intends for the system tobe  fed entirely from natural gas boilers until 2023 at which point the transition to a more complex system of natural gas peaking boilers and electric heat pumps. This system was previously modelled in \citet{mccarty_accepted_2020}. Its carbon intensity was estimated to be between an annual average of 10.8 and 180.0 kgCO2e/kWh. The range is due to fluctuations in the amount of natural gas used in the system, as well as the amount of waste heat available to create a more efficient lift in the heat pumps. Limits imposed on heat pump and waste heat capacity are drawn from the operator in \citet{noauthor_infrastructure_2014}.
+
+The embodied carbon of components and technologies of the models was gathered, similar to the cost data, from a variety of sources \citep{jones_ice_2019, droguett_embodied_2019,c-change_labs_embodied_2020}, and are cradle-to-gate accounts of embodied carbon. The limitation with disparate data sources in this portion of the research generally has to do with the geography of the components involved. An effort was made to first gather data from sources specific the BC or the Pacific Northwest region of the US and than from North America as a whole, before seeking data from further away. 
+
+%---------------------------------------------------------------------------------------
+\section*{Results}
+
+The simulation procedure was executed for 1024 scenarios, producing hourly demand results for each building within the simulation space, as well as annual cost and emissions results for each building. For iterations in which rooftop-photovoltaic was an option a set of results was generated to be used in correcting total grid-demand for the electricity generated by the rooftop-photovoltaic. From these iterations several MACCs were constructed in Figures \ref{fig:MACC_budget}, \ref{fig:MACC_threshold}, and \ref{fig:true_macc_both}. The first two are \textit{illustrative} MACCs in that they present a set of possible interventions, but not necessarily a pathway through which those interventions can be connected. The latter two are \textit{true} MACCs as described in Figure \ref{fig:true_macc_both}.
 
 \subsection*{General Performance}
 Figure \ref{fig:cross_plot} displays net-cost and gross emissions for each iteration within each of the four scenarios. Three groups tend to emerge with the most stark difference being that one group is emitting far more than the other two. This is a result of those scenarios still relying on the natural-gas based heating system. This difference is apparent across both climate change pathways, leading to a conclusion that the impacts of a more severe future climate is not disrupting mitigation efforts as predicted by the model. It appears to enable it to an extent. Comparing the highlighted groups of similar strategy-sets between the best-case and worst-case scenarios a decrease in lifetime emissions is apparent. We suspect that this is due to the warmer temperatures reducing the heating seasons as well as enabling the district to remain below the heat pump capacity more of the year. Figure \ref{fig:compare_district} shows this in the operation of the district in the baseline cases from each climate scenario
@@ -265,11 +270,16 @@ MACCs were drawn as another form of visualising decision making. Figure \ref{fig
     \label{fig:true_macc_both}
 \end{figure}
 
-% Marginal abatement cost and the adaptation metric were plotted to evaluate the Pareto front of each scenario. For each of the four combinations of development and climate change pathway, %Figure \ref{fig:pareto_plot} highlights the best performing set of experiments using a convex hull, pareto frontier. The adaptation metric is altered in these plots to show the remaining percentage of \textit{hours outside of the threshold}, where the optimum would be 0\%. The figure as a whole was created under that assumption that only one strategy can be implemented at a time, with the topmost row containing all 255 experiments for each scenario and the following rows one less strategy implemented until the bottom row which contains only a single strategy implemented. These charts can inform the creation of a \textit{true} MACC by informing which strategy set is chosen based on not only marginal abatement cost, but also the adaptation metric.
+\begin{figure}[t!]
+    \centering
+    \captionsetup{margin=.5cm}
+    \includegraphics[scale=0.45]{figures/pareto_plots_585_box_update.eps}
+    \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
+    \label{fig:pareto_plot}
+\end{figure}
 
-Of the two \textit{true} MACCs used in this study, the first represents a strategy-set that was chosen based on a high degree of adaptability present, while also abating a large amount of emissions. This was done under the worst-case climate scenario and the selected strategy-set is \textit{00011111}.
 
-% is highlighted in Figure \ref{fig:pareto_plot}. 
+Of the two \textit{true} MACCs used in this study, the first represents a strategy-set that was chosen based on a high degree of adaptability present, while also abating a large amount of emissions. This was done under the worst-case climate scenario and the selected strategy-set is \textit{00011111}, highlighted in Figure \ref{fig:pareto_plot}. Marginal abatement cost and the adaptation metric were plotted in Figure \ref{fig:pareto_plot} to evaluate optimal fronts of each scenario.
 
 Figure \ref{fig:true_macc_both} describes how each strategy contributes to the overall decrease in emissions. The MACC is shown in Figure \ref{fig:true_macc_both} where the first strategy, the installation of heat pumps in all buildings to service space heating and cooling as well as domestic hot water, contributes to the bulk of the emissions reduction. This is due to the impact that moving away from the district heating system, which has the potential to use natural gas if heating and DHW load exceeds the district's heat pump capacity. The majority of the abatement can be attributed to the heat pump strategy, removing natural gas from the fuel mix, while the other strategies can be said to lending to adaptability. This point about the fuel mix will be returned to more in the discussion, but raises that question about how to affordably meet zero-carbon targets after fuel-switching has been achieved. This scenario only achieves 67\% emissions reduction over the baseline by 2080.
 
@@ -297,13 +307,7 @@ A second \textit{true} MACC was generated under the plan to abate as many emissi
 %     \label{fig:pareto_plot}
 % \end{figure*}
 
-%\begin{figure}[t]
-%    \centering
-%    \captionsetup{margin=.5cm}
-%    \includegraphics[scale=0.50]{figures/pareto_plots_585_box.eps}
-%    \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
-%    \label{fig:pareto_plot}
-%\end{figure}
+
 
 %---------------------------------------------------------------------------------------
 \section*{Discussion}
