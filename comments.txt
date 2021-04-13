@@ -1,0 +1,31 @@
+Review 1 
+======== 
+Comments for the Authors 
+------------------------ 
+The subject is interesting, and the paper well written. 
+My major concern is about the embodied impacts calculation within this study where one can not understand input hypotheses, method, scope, and the share of embodied impact within the results. Also, as the study target the 2080 horizon, a dynamic approach to the carbon content of the grid can't be avoided. 
+
+Please, also consider the following specific comments: 
+
+--> The title of this paper is not consistent with the title of the conf.tool page. 
+--> The lack of details about simulation inputs decreases the result's usability. More details about the embodied carbon of building components for instance is required, especially if data sources come from a very large scope around the world. 
+--> The lack of embodied carbon data and its consequences on the study should be discussed within the discussion section. 
+--> Are you performing LCA of your retrofitting scenarios? If so following which norm? What is your scope, the lifetime of the building, etc... 
+--> Future carbon content of the grid should lower over time. It means that deep envelope retrofit efficiency will do the same. At the 2080 horizon, the low carbon content of the grid should not be overlooked. At least in a very simple way with a linear regression towards a full decarbonated grid. 
+--> In the end, what happens if the grid is fully carbon-free? It remains embodied carbon only. This should also be discussed. 
+--> Within the results, a split between operational and embodied emissions would be very insightful to understand which retrofitting measure is contributing to what. 
+
+
+Review 2 
+======== 
+Comments for the Authors 
+------------------------ 
+Well written and interesting paper, few questions and recommendations for the revision of the paper: 
+
+Urban Energy Model => morphed climate files were produced: please explain in more detail the morphing process for developing the future climate files and add the limitations of the approach. 
+
+Total annualized cost: the value for the discount rate seems high, please add source for this assumption. The paper does not mention the assumed growth rate for the energy cost: please add which annual growth rate has been assumed. Indicate in the paper if the rates are real or nominal rates. 
+
+Figure 5 - marginal abatement cost to meet 80% reduction => why is 'adjust setpoints' not selected / taken into account in this analysis? 
+
+A final language check is recommended to correct a few typos noticed in the text. 
