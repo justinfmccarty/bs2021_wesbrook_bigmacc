@@ -20,6 +20,9 @@ columnsep=0.8cm]{geometry}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{tabularx}
+\usepackage{draftwatermark}
+\SetWatermarkText{DRAFT}
+\SetWatermarkScale{5}
 %-----------------------------SET SKIP SPACES -------------------------------------------------------------------
 \setlength{\abovecaptionskip}{0pt}
 \setlength{\belowcaptionskip}{3pt}
@@ -53,7 +56,7 @@ Simulation and visualization framework for selecting appropriate urban-scale cli
 %%% Change or delete text before "\\" on the lines below to keep the layout but don't remove the "\\"
 %%% Do not exceed more than 6 lines for authors and affiliations
 \author{																																														% Line 3
-% Justin McCarty$^1$, Adam Rysanek$^1$
+Justin McCarty$^1$, Adam Rysanek$^1$
 \\ 																				% Line 4
 % $^1$The University of British Columbia, Vancouver, Canada
 \\ 																																                                                            	% Line 5
@@ -104,6 +107,9 @@ In the presence of limited resources and a range of objectives, the cost and ben
 Introducing the scale of a neighborhood or even entire city requires a more extensive modelling framework as described above, as well as the consideration of additional sources of model uncertainty attributed to urban-scale matters. No longer would a model be concerned with answering a single question about a single existing building - how do we mitigate the most carbon at the lowest price? Now, the model would  being applied in the context of an existing area where buildings and empty plots could face a \textit{known-unknown} trajectory of either new development, redevelopment, and no change. This brings in the concept of a development timeline during which differing scales of development may occur.
 
 This study integrates several climate adaptation strategies into the urban-scale energy simulation process. Adaptation strategies are evaluated on the basis of marginal costs of mitigation \textit{and} adaptation, vis-a-vis the influence of individual design strategies on the resilience of the urban development to expected climate change. This study will simulate the performance of eight climate mitigation and adaptation strategies alongside one urban development trajectory and two climate change scenarios. The simulations will be also carried out at two individual time periods (2050 and 2080), for a case study community in southwestern Canada: Wesbrook Village, Vancouver, British Columbia (BC). A baseline urban building energy model (UBEM) was created to represent the development of the community to-date.
+
+% Following this a brief introduction to the context of the study, Wesbrook Village is presented and then formats for visualizing mitigation and adaptation data are introduced. After these introductions, the Methods section presents the urban building energy model, mitigation and adaptation strategies, simulation format, and lastly the costing and carbon accounting methodology and data sources. The Results are then presented first as general performance of the strategies and then utilizing the visualization formats introduced in earlier several figures are drawn in the context of theoretical mitigation and adaptation planning for the development. The results and methods are then discussed for their limitations and impacts on climate change planning efforts in the community.
+
 
 
 % \begin{figure}
@@ -260,7 +266,7 @@ The simulation procedure was executed for 1024 scenarios, producing hourly deman
 Figure \ref{fig:cross_plot} displays net-cost and gross emissions for each iteration within each of the four scenarios. Three groups tend to emerge with the most stark difference being that one group is emitting far more than the other two. This is a result of those scenarios still relying on the natural-gas based heating system. This difference is apparent across both climate change pathways, leading to a conclusion that the impacts of a more severe future climate is not disrupting mitigation efforts as predicted by the model. It appears to enable it to an extent. Comparing the highlighted groups of similar strategy-sets between the best-case and worst-case scenarios a decrease in lifetime emissions is apparent. We suspect that this is due to the warmer temperatures reducing the heating seasons as well as enabling the district to remain below the heat pump capacity more of the year. Figure \ref{fig:compare_district} shows this in the operation of the district in the baseline cases from each climate scenario
 
 \subsection*{Visualizing decision making}
-MACCs were drawn as another form of visualising decision making. Figure \ref{fig:MACC_budget} is not a \textit{true} MACC in that you can only implement one of the strategy-sets, represented by the bars. However, it improves on previous \textit{illustrative} MACCs in that the bars do not unnecessarily represent single strategy interventions, but rather a set of strategies. It was drawn to assist in planning under the assumption that planners are expecting a worst-case climate change scenario by the end of the century and have set a budget of an additional \$11,000,000 that could be invested across the development on mitigation and adaptation strategies. The drawn MACC then presents every possible combination under the development and climate change trajectory that falls below the budget, selecting \textit{01011001} at the marginal abatement cost of -\$123. Another \textit{illustrative} MACC was drawn, seen in Figure \ref{fig:MACC_threshold} assuming an emissions reduction threshold of 80\% by 2050 under the best-case climate scenario. All bars represet strategy-sets that would reach that reductions total, ultimately \textit{0111000} is chosen at the marginal abatement cost of -\$50.
+MACCs were drawn as another form of visualising decision making. Figure \ref{fig:MACC_budget} is not a \textit{true} MACC in that you can only implement one of the strategy-sets, represented by the bars. However, it improves on previous \textit{illustrative} MACCs in that the bars do not unnecessarily represent single strategy interventions, but rather a set of strategies. It was drawn to assist in planning under the assumption that planners are expecting a worst-case climate change scenario by the end of the century and have set a budget of an additional \$11,000,000 that could be invested across the development on mitigation and adaptation strategies. The drawn MACC then presents every possible combination under the development and climate change trajectory that falls below the budget, selecting \textit{01011001} at the marginal abatement cost of -\$123. Another \textit{illustrative} MACC was drawn, seen in Figure \ref{fig:MACC_threshold} assuming an emissions reduction threshold of 80\% by 2050 under the best-case climate scenario. All bars represent strategy-sets that would reach that reductions total, ultimately \textit{0111000} is chosen at the marginal abatement cost of -\$50.
 
 \begin{figure}[hbpt]
     \centering
