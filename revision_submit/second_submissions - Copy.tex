@@ -1,0 +1,295 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template revision history:
+% BS2021: Revised by Filip Jorissen, filip.jorissen@kuleuven.be
+% BS2019: Revised by Alessandro Prada, alessandro.prada@unitn.it
+% BS2017: Initial version by Michael Wetter, mwetter@lbl.gov
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[twocolumn, a4paper,10pt]{article}
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.0cm, right=2.0cm,
+columnsep=0.8cm]{geometry}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{boxedminipage}
+\usepackage{nopageno}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage[font=it]{caption}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tabularx}
+%-----------------------------SET SKIP SPACES -------------------------------------------------------------------
+\setlength{\abovecaptionskip}{0pt}
+\setlength{\belowcaptionskip}{3pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+%\renewcommand{\baselinestretch}{0.7}
+% FOR enumerates
+\setlist{itemsep=-0.1cm,topsep=0.1cm,labelsep=0.3cm}
+\setenumerate{leftmargin=*}
+\setcounter{secnumdepth}{-1}
+%-----------------------------SET FONTS -------------------------------------------------------------------
+% Set fonts for title, section and subsection headings
+\makeatletter
+\renewcommand\title[1]{\gdef\@title{\fontsize{12pt}{2pt}\bfseries{#1}}}
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}{3pt}{3pt}{\normalfont\large\bfseries}}
+% \normalfont\large
+\makeatletter
+\renewcommand\subsection{\@startsection{subsection}{1}{\z@}{\z@}{\z@}{\normalfont\normalsize\bfseries}}
+\makeatletter
+\renewcommand\subsection{\@startsection{subsection}{1}{\z@}{\z@}{0.1pt}{\normalfont\normalsize\bfseries}}
+\renewcommand\refname{References}
+%END OF THE SETUP
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Simulation and visualisation of mitigation and adaption strategy pathways for urban districts
+%%%%%%%%%%%%%%%%%%%%%%%%   TITLE   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Please keep the \vspace{4pt} at the top
+\title{%
+Simulation and visualization framework for selecting appropriate urban-scale climate mitigation and adaptation strategies} 																																% Line 2 
+%If there is no second line then just put \phantom{Line 2} here
+%%% Change or delete text before "\\" on the lines below to keep the layout but don't remove the "\\"
+%%% Do not exceed more than 6 lines for authors and affiliations
+\author{																																														% Line 3
+% Justin McCarty$^1$, Adam Rysanek$^1$
+\\ 																				% Line 4
+% $^1$The University of British Columbia, Vancouver, Canada
+\\ 																																                                                            	% Line 5
+% $^2$Institution 2, City 2, Country 2
+\\ 																																                                                                % Line 6
+% comment the lines below and add \phantom{} lines as needed to reach a total of 10 lines
+% \textit{(The names and affiliations SHOULD NOT be included in the draft submitted for review)}
+\\ 			 			  	                                                    % Line 7
+% \textit{(leave blank up to line 10 - remove line numbering from final version)}
+\\ 														                    	% Line 8
+\phantom{Line 9}} 																																								            	% Line 9
+\date{\vspace{-0.5cm}}	% remove default date and replace the Blank 10th line														                                                            % Line 10
+%END OF THE TITLE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle
+
+\section*{Abstract}	% Section headings need to be upper and lower case.
+\addtocounter{section}{1}
+At present mitigation and adaptations strategies compete for constrained resources within a future of uncertain climate impacts. Meeting decarbonisation goals while implementing robust and resilient adaptation strategies requires an analysis structure that can account for uncertainty as well as depict how the intermingling of strategies may hinder or benefit the ultimate trajectory of actions. The marginal abatement cost curve (MACC) is an indispensable tool for planning mitigation pathways, but has historically not relied upon robust experimental analysis making it notional at best nor has it included a view of adaptation pathways. This study utilizes a newly developed, medium-density residential community in Vancouver, British Columbia, Canada as a case study for developing a pathway-based MACC. Multiple mitigation and adaptation measures are modeled individually and through exhaustive combination to test their sensitivity on marginal abatement cost and residual cost of climate change. Several visualizations are created to demonstrate several ways of analyzing the resulting large set of data.   
+
+\section*{Key Innovations}
+\begin{itemize}
+\item Visualization of marginal abatement cost of urban scale building and energy system interventions.
+\item Intermingling of climate change mitigation and adaptation strategies in a decision making framework for development planning.
+\item The inclusion of embodied carbon as a metric in determining carbon emissions and marginal abatement cost.
+\item Contribution of an open-dataset of simulated demand, cost, and emissions for use in reanalysis and further studies.
+\end{itemize}
+
+\section*{Practical Implications}
+Open-source simulation tools can be used to test the sensitivity of different decarbonisation and adaptation strategies for an urban area, allowing planners better models to make well-informed planning decisions. The resulting visualizations of this study offer a sample of this, as well as an example of a comprehensive urban building energy model. The results also raise questions about decarbonization pathways in British Columbia after strategies such as fuel switching are implemented, reducing the majority of emissions, but not entirely creating zero-carbon communities. 
+
+%---------------------------------------------------------------------------------------
+\section*{Introduction}
+
+Atmospheric concentrations of carbon dioxide are just over 410 parts per million, while recent estimates from the \citet{noauthor_state_2020} situate the Northern Hemisphere’s land and ocean surface temperature anomaly at 1.29°C from baseline (1961-1990). This may not be considered a consistent level of \textit{global warming}, but it does indicate a dangerous warming trend facing human and non-human systems. Climate change impacts are now being recognized as burdens on economic and social systems \citep{frame_climate_2020}. Implementing adaptation strategies within the built environment is necessary to increase social resilience, protect safety and life, and prevent economic damage with the potential to bolster all of the above \citep{schunemann_mitigation_2020}. Simultaneously, the mitigation of present emissions, the abatement of possible future emissions, and the sequestration of atmospheric carbon is necessary to curtail increasingly dangerous and catastrophic levels of warming. This process of carbon drawdown is very familiar within studies of the built environment with strategies posed for transportation, buildings, agriculture, forestry, and other land-uses. Mitigation and adaptation strategies though are rarely evaluated simultaneously in the context of urban development.
+
+\begin{figure}[hbpt]
+    \centering
+    \includegraphics[scale=0.28]{figures/wesbrook_plan.eps}
+    \caption{The baseline UBEM for Wesbrook Village in BC.}
+    \label{fig:wesbrook_base}
+\end{figure}
+
+In the presence of limited resources and a range of objectives, the cost and benefit of proposed strategies need to be assessed on their own and while interacting with other strategies, as well as under the uncertainty of climate change and human action. The interaction of strategies is a key factor explored in \citet{rysanek_using_2013}, where exhaustive simulation is applied in the modeling of fifteen individual building retrofit strategies (a total of 32,768 unique combinations). From this, a database of simulated retrofit-specific pathways for a single building can be generated.
+
+Introducing the scale of a neighborhood or even entire city requires a more extensive modelling framework as described above, as well as the consideration of additional sources of model uncertainty attributed to urban-scale matters. No longer would a model be concerned with answering a single question about a single existing building - how do we mitigate the most carbon at the lowest price? Now, the model would  being applied in the context of an existing area where buildings and empty plots could face a \textit{known-unknown} trajectory of either new development, redevelopment, and no change. This brings in the concept of a development timeline during which differing scales of development may occur.
+
+This study integrates several climate adaptation strategies into the urban-scale energy simulation process. Adaptation strategies are evaluated on the basis of marginal costs of mitigation \textit{and} adaptation, vis-a-vis the influence of individual design strategies on the resilience of the urban development to expected climate change. This study will simulate the performance of eight climate mitigation and adaptation strategies alongside one urban development trajectory and two climate change scenarios. The simulations will be also carried out at two individual time periods (2050 and 2080), for a case study community in southwestern Canada: Wesbrook Village, Vancouver, British Columbia (BC). A baseline urban building energy model (UBEM) was created to represent the development of the community to-date.
+
+% Following this a brief introduction to the context of the study, Wesbrook Village is presented and then formats for visualizing mitigation and adaptation data are introduced. After these introductions, the Methods section presents the urban building energy model, mitigation and adaptation strategies, simulation format, and lastly the costing and carbon accounting methodology and data sources. The Results are then presented first as general performance of the strategies and then utilizing the visualization formats introduced in earlier several figures are drawn in the context of theoretical mitigation and adaptation planning for the development. The results and methods are then discussed for their limitations and impacts on climate change planning efforts in the community.
+
+
+\subsection*{Wesbrook Village} 
+
+Wesbrook Village is a new residential community under construction by the University of British Columbia (UBC) \citep{ubc_planning_ubc_2020_SR, ubc_planning_ubc_2020_wb}. On its completion within the next decade, the community will provide permanent housing for over 25,000 residents of Vancouver, BC primarily in mid-rise (4-6 stories) and high-rise residential towers (15-30 stories). 
+
+The development, referred to throughout the study as \textit{Wesbrook}, is a compelling case study as it can be considered a model of medium-density new development for BC and North America at large. For example, Wesbrook was developed under the auspices of a progressive building code, overseen by UBC, that targets all new campus residential developments to satisfy net-zero energy ready (NZER) performance levels by 2032.
+
+Buildings of the Wesbrook community make use of mix of energy systems. Some buildings provide space heating through hydronic in-floor radiant systems; some through electric baseboard heaters. Some buildings operate dedicated boilers for generating hot water; other buildings receive hot water from a natural gas-fired district energy system. This district heating system is described in the context of a UBEM in \citet{mccarty_accepted_2020}. Centralized space cooling has not been provided for across the development, but concerns around the potential need for future space cooling is a growing concern for naturally-ventilated buildings in the region \citep{rysanek_forecasting_2021}. With its current building codes, UBC does intend that space cooling may be a required energy service in the community in the next decade \citep{noauthor_residential_2021}.
+
+\begin{table*}[ht]
+    \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
+    \caption{Each strategy as it was applied in the simulations.}
+    \footnotesize
+    \label{tab:strategies}
+    \centering
+    % \begin{tabularx}{\textwidth}{|X|X|X|}
+    \begin{tabularx}{\linewidth}{|>{\hsize=0.2\hsize}X|
+                              >{\hsize=0.4\hsize}X|
+                              >{\hsize=0.15\hsize}X|
+                              >{\hsize=0.25\hsize}X|}
+        \hline
+        \bf{Strategy} & \bf{Description} & \bf{Scale} & \bf{Embodied CO\textsubscript{e} Source} \\
+        \hline
+        Adjust Comfort Threshold & Raise cooling setpoints 1C and reduce heating setpoints 1C & All Buildings & N/A \\
+        \hline
+        Green Roof & Install green roofs for insulation, albedo, and heat gain benefits. & All Buildings & \citep{jones_ice_2019}\\
+        \hline
+        Deep Envelope and HVAC Retrofit & Install heat pumps for space heating and DHW along with high performance shells and reduced window-wall ratios & Existing Buildings & \citep{jones_ice_2019, rodriguez_embodied_2019} \\
+        \hline
+        Passive House & Require passive house building codes for envelope. & New Buildings & \citep{jones_ice_2019} \\
+        \hline
+        Heat Pumps & Install heat pumps for space heating, cooling and DHW. & All buildings & \citep{rodriguez_embodied_2019} \\
+        \hline
+        Mass Timber & Construction must utilize mass timber. & New Buildings & \citep{c-change_labs_embodied_2020} \\
+        \hline
+        Seawater Cooling Loop & Buildings get space cooling from heat pump that is amplified with a seawater cooling loop & All Buildings & \citep{noauthor_cpcn_2014, jones_ice_2019} \\
+        \hline
+        Rooftop Photovoltaic & Install grid-tied rooftop solar with net-metering & All Buildings  & \citep{jones_ice_2019} \\
+        \hline
+    \end{tabularx}
+    \vspace{-5pt}   % Please use appropriate negative vspace to remove the space above/belovw the Table
+\end{table*}
+
+\subsubsection*{Retrofit and New Development Trajectory}
+The majority of Wesbrook has been completed as of 2020, with 50\% of the total expected build-out of 725,925 sqm. remaining to be constructed. As indicated in Figure \ref{fig:wesbrook_base} the yet-to-be-completed development will be assessed in the model through the future periods. The Wesbrook planning and development scheme is well laid out in master-planning documents \citep{ubc_planning_ubc_2020_wb}. The simulation framework is built from a baseline in 2020 of the completed development up to 2020. Two more time periods are simulated, the first in 2050 and then in 2080. The base-case for each time period assumes that the stock of buildings that were simulated in the previous time-step (existing) were retrofitted with similarly performing technologies and components. New buildings are however built to a performance profile modeled after expected changes in the community's building performance code (\citep{noauthor_residential_2021}). 
+
+\subsection*{Mitigation and adaptation decision tools}
+\citet{rysanek_using_2013} expanded on the use of marginal abatement cost curves as a tool for planning retrofit pathways in single building optimization. The authors commentary was that by failing to consider technical and economic interactions MACCs such as those proposed by \citet{mckinsey__co_climate_2010} were more \textit{illustrative} than planning tools. Without accounting for the additionality of measures many MACCs fall into this grouping and limit their overall effectiveness. \citet{kesicki_marginal_2012} acknowledges temporal interactions as an additional dimension that need to be considered when constructing MACCs. Traditionally MACCs were developed for annual-planning and more recently, as ambition has grown, so too have their temporal scales. These interactions can be summarized as understanding how investments made in the past may affect the outcome of the MACC, similar to the issue of technical and economic interactions. In planning buildings or infrastructure with MACCs this becomes a significant feature to consider as selecting investments to implement, one typically does so along an investment pathway. 
+
+It is also of particular importance when developing infrastructure or buildings to consider the impact of a changing climate. Adaptation is prevalent in designing buildings in proximity to rising seas, with strategies ranging from hard measures such as levies and dams to soft measures such as wetland restoration \citep{pachauri_climate_2015}. Evidence is pointing to the need to consider other impacts, such as overheating risk due to generally warmer days, nights with less cooling capacity, and more intense heat waves \citep{lomas_overheating_2017,rysanek_forecasting_2021}. Measuring adaptation is a contentious field, as what defines successful adaptation is not as simple to calculate as net carbon emissions \citep{pachauri_climate_2015}. \citet{brooks_tracking_2011} suggests several general criteria by which successful adaptation can be assessed: feasibility, efficacy/effectiveness, efficiency, acceptability/legitimacy, equity, and sustainability. The same authors also discuss the concept of \textit{Maladaptation}, or the inadvertent increase in vulnerability to climate change as a result of development, which has equal importance to adaptation planning of buildings. For all criteria though, measures begin with assessing vulnerability of a subject to a stressor or collection of stressors. In the case of coastal development, a building's adaptive capacity and success can be measured by its vulnerability to increasingly intense sea level rise and storm surge. In the case of this study the stressor is heat gain and the vulnerability of a building to overheating. 
+
+%---------------------------------------------------------------------------------------
+\section*{Methods}
+
+\subsection*{Urban Building Energy Model (UBEM)}
+The simulation framework utilizes an extension of the City Energy Analyst (CEA) demand forecasting model \citep{fonseca_city_2016,the_cea_team_city_2020}. The CEA enables simulations of urban and neighborhood scale energy systems, as well as independently operating buildings. 
+
+The constructed UBEM consists of a base-case of development and two future states of development, one in 2050 and another in 2080. The base-case was simulated once to tune the model. Each of the future states of development were simulated once for each combination of strategies under both climate change scenarios for a total of 1024 simulations.  
+
+The EnergyPlus Weather (EPW) file for Vancouver, BC produced by \citet{cwec_2016} was morphed, following the algorithms set out by \citet{belcher_constructing_2005} and expanded upon by \citet{jentsch_climate_2008}. A 25-member ensemble of climate model output data from Climate Model Intercomparison Project 6 (CMIP6) models was used in the morphing process. Two climate pathways are followed, discussed in this paper as the \textit{best-case} and \textit{worst-case} scenarios. These are \textit{Shared Socioeconomic Pathway 1} (SSP126) and \textit{Shared Socioeconomic Pathway 5} (SSP585)
+defined in \citet{oneill_roads_2017}. Two morphed climate files were produced at 2050 and 2080 for each pathway.
+
+\subsection*{Climate mitigation and adaptation strategies}
+Eight mitigation and adaptation strategies were selected to evaluate under the development pathways and climate change pathways. The strategies, described in Table \ref{tab:strategies}, reflect larger interventions into either existing buildings, new buildings, both, or the underlying energy system in the community. A strategy is implemented alone as well as in combination with the other seven to understand its range of potential impacts, which assists the decision-making framework in determining a pathway to implement strategies.
+
+Adaptation was considered as the capacity of a building to remain within its comfort threshold while also mitigating carbon emissions. The threshold considered is between 18\textdegree C and 26\textdegree C. For each building in each strategy-set the total amount of hours that interior temperature exceeds the threshold is counted. The median value from the buildings is then taken as the adaptation metric for each strategy-set.
+
+\subsection*{Simulation}
+For each development period and under each climate change pathway the same eight strategies for carbon mitigation and climate change adaptation to a changing climate were evaluated for their marginal cost of carbon abatement. The simulation procedure for each scenario began with the base-case, under which no strategies were implemented, following with 255 iterations where strategies where implemented alone and in combination with each other. This was repeated across both development pathways and both climate change pathways, leading to 1024 total simulations undertaken by the UBEM.
+
+% A single entire simulation process (1024 iterations) required 64 hours of processing, utilizing 14 threads from an Intel i9-9900 8-core CPU at 4.6GHz, requiring 20GB of free RAM and an end storage requirement over 2TB of uncompressed results files. This detail is mentioned to help readers understand the scale of computing required to undertake simulations of this scale and to seek methods and functions that optimize processing times. 
+
+\subsection*{Total Annualized Cost}
+Components and technology costs was gathered through several data sources, \citep{noauthor_cpcn_2014,schlueter_3for2_2016,salasovich_energy_2016,kegel_life_nodate,gordian_rsmeans_2020}. Cost is a highly uncertain data point to incorporate into building energy models. Cost is assessed as the net difference between a strategy-set and the baseline, each calculated as the 30-year total annualized cost (TAC), shown in Eq. 1, from within the City Energy Analyst, applying a 5\% discount rate, which was chosen after consulting the local developers and planners.
+
+\begin{equation}
+C_{ann,tot} = CRF(i,R)C_{NPC,tot}
+\end{equation}
+
+Total Annualized Cost is the annualized value of the total net present cost where \textit{CRF} is the Cost Recovery Factor, requiring \textit{i}, the annual real discount rate, and \textit{R}, the lifetime considered. C\textsubscript{NPC,tot} is the total net present cost for the lifetime considered.
+
+
+\begin{figure}[t]
+    \centering
+    \captionsetup{margin=.5cm}
+    \includegraphics[scale=0.8]{figures/general_results_box.eps}
+    \caption{General results from the iterations presented across total emissions over 30 years and net 30-year total annualized cost.}
+    \label{fig:cross_plot}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[scale=1.15]{figures/district_heat_charts.eps}
+    \caption{Here we compare the demand on the district heating system and show, in the highlighted gap, where less natural gas was used due to the generally warmer winter in SSP585.}
+    \label{fig:compare_district}
+\end{figure}
+
+\begin{figure*}[hbpt]
+\centering
+\begin{minipage}[b]{.45\textwidth}
+    \hspace*{-1.05cm}\includegraphics[scale=1.0]{figures/budget_macc.eps}
+    \caption{Illustrative MACC made assuming a budget of \$11 million in net cost was permitted for any plotted strategy-set.}
+    \label{fig:MACC_budget}
+\end{minipage}\qquad
+\begin{minipage}[b]{.45\textwidth}
+    \hspace*{-.4cm}\includegraphics[scale=1.0]{figures/threshold_macc.eps}
+    \caption{Illustrative MACC made assuming an emissions reduction threshold of 80\% was necessary for any plotted strategy-set.}
+    \label{fig:MACC_threshold}
+\end{minipage}
+\end{figure*}
+
+\subsection*{Operational and embodied carbon}
+Operational carbon is taken as the carbon emitted over a 30 year period from each building as a result of energy consumption for plug-load, heating and cooling, and ventilation service. BC's electrical grid is served by a hydroelectric power provider and is a low-carbon source, at 10.8 kgCO2e/kWh \citep{bc_ministry_of_envrionmetn_and_climate_change_strategy_bc_2019}. The district heating provider intends for the system to be fed entirely from natural gas boilers until 2023 at which point there will be a transition to a more complex system of natural gas peaking boilers and wate-heat primed electric heat pumps. This system was previously modelled in \citet{mccarty_accepted_2020}. Its carbon intensity was estimated to be between an annual average of 10.8 and 180.0 kgCO2e/kWh. The range is due to fluctuations in the amount of natural gas used in the system, as well as the amount of waste heat available to create a more efficient lift in the heat pumps. Limits imposed on heat pump and waste heat capacity are drawn from the operator in \citet{noauthor_infrastructure_2014}.
+
+The embodied carbon of components and technologies of the models was gathered, similar to the cost data, from a variety of sources \citep{jones_ice_2019, droguett_embodied_2019,c-change_labs_embodied_2020}, and are cradle-to-gate. The limitation with disparate data sources in this portion of the research generally has to do with the geography of the components involved. An effort was made to first gather data from sources specific the BC or the Pacific Northwest region of the US and than from North America as a whole, before seeking data from further away. 
+
+%---------------------------------------------------------------------------------------
+\section*{Results}
+The simulation procedure was executed for 1024 scenarios, producing hourly demand results for each building within the simulation space, as well as annual cost and emissions results for each building. For iterations in which rooftop-photovoltaic was an option a set of results was generated to be used in correcting total grid-demand for the electricity generated by the rooftop-photovoltaic. From these iterations several MACCs were constructed in Figures \ref{fig:MACC_budget}, \ref{fig:MACC_threshold}, and \ref{fig:true_macc_both}. The first two are \textit{illustrative} MACCs in that they present a set of possible interventions, but not necessarily a pathway through which those interventions can be connected. The latter two are \textit{true} MACCs as described in \ref{fig:true_macc_both}.
+
+\subsection*{General Performance}
+Figure \ref{fig:cross_plot} displays net-cost and gross emissions for each iteration within each of the four scenarios. Three groups tend to emerge with the most stark difference being that one group is emitting far more than the other two. This is a result of those scenarios still relying on the natural-gas based heating system. This difference is apparent across both climate change pathways, leading to a conclusion that the impacts of a more severe future climate is not disrupting mitigation efforts as predicted by the model. It appears to enable it to an extent. Comparing the highlighted groups of similar strategy-sets between the best-case and worst-case scenarios a decrease in lifetime emissions is apparent. We suspect that this is due to the warmer temperatures reducing the heating seasons as well as enabling the district to remain below the heat pump capacity more of the year. Figure \ref{fig:compare_district} shows this in the operation of the district in the baseline cases from each climate scenario
+
+\subsection*{Visualizing decision making}
+MACCs were drawn as another form of visualising decision making. Figure \ref{fig:MACC_budget} is not a \textit{true} MACC in that you can only implement one of the strategy-sets, represented by the bars. However, it improves on previous \textit{illustrative} MACCs in that the bars do not unnecessarily represent single strategy interventions, but rather a set of strategies. It was drawn to assist in planning under the assumption that planners are expecting a worst-case climate change scenario by the end of the century and have set a budget of an additional \$11,000,000 that could be invested across the development on mitigation and adaptation strategies. The drawn MACC then presents every possible combination under the development and climate change trajectory that falls below the budget, selecting \textit{01011001} at the marginal abatement cost of -\$123. Another \textit{illustrative} MACC was drawn, seen in Figure \ref{fig:MACC_threshold} assuming an emissions reduction threshold of 80\% by 2050 under the best-case climate scenario. All bars represent strategy-sets that would reach that reductions total, ultimately \textit{0111000} is chosen at the marginal abatement cost of -\$50.
+
+\begin{figure}[hbpt]
+    \centering
+    \captionsetup{margin=.5cm}
+    \includegraphics[scale=0.95]{figures/true_maccs_waterfalls_both.eps}
+    \caption{Here two sets of plots are shown for two strategy sets. The top of each set shows the contribution of each strategy to the the strategy set's overall carbon emissions reduction. The bottom shows the MAC breakdown within each strategy set.}
+    \label{fig:true_macc_both}
+\end{figure}
+
+Of the two \textit{true} MACCs used in this study, the first represents a strategy-set that was chosen based on a high degree of adaptability present, while also abating a large amount of emissions. This was done under the worst-case climate scenario and the selected strategy-set is \textit{00011111} is highlighted in Figure \ref{fig:pareto_plot}. Marginal abatement cost and the adaptation metric were plotted in Figure \ref{fig:pareto_plot} to evaluate optimal fronts of each scenario.
+
+Figure \ref{fig:true_macc_both} describes how each strategy contributes to the overall decrease in emissions. The MACC is shown in Figure \ref{fig:true_macc_both} where the first strategy, the installation of heat pumps in all buildings to service space heating and cooling as well as domestic hot water, contributes to the bulk of the emissions reduction. This is due to the impact that moving away from the district heating system, which has the potential to use natural gas if heating and DHW load exceeds the district's heat pump capacity. The majority of the abatement can be attributed to the heat pump strategy, removing natural gas from the fuel mix, while the other strategies can be said to lending to adaptability. This point about the fuel mix will be returned to more in the discussion, but raises that question about how to affordably meet zero-carbon targets after fuel-switching has been achieved. This scenario only achieves 67\% emissions reduction over the baseline by 2080.
+
+A second \textit{true} MACC was generated under the plan to abate as much carbon as possible while continuing to use the district heating system, under the worst-case climate scenario. Figure \ref{fig:true_macc_both} describes how each measure contributes to overall emissions reduction. The resulting MACC shows a more consistent scale of MAC and overall abatement between measures that the previous example, but total abatement is only 8\% of the baseline's emissions.
+
+\begin{figure}[t!]
+    \centering
+    \captionsetup{margin=.5cm}
+    \includegraphics[scale=0.40]{figures/pareto_plots_585_box_update.eps}
+    \caption{Plotting marginal abatement cost and the adaptation metric to serve as a canvas for pathway planning.}
+    \label{fig:pareto_plot}
+\end{figure}
+%---------------------------------------------------------------------------------------
+\section*{Discussion}
+
+\subsection*{Abatement after fuel-switching}
+The context for this study sets up an interesting proposition within BC. Electricity in BC is provided primarily via hydroelectricity; the electrical gird is considered 98\% clean energy \citep{bc_ministry_of_envrionmetn_and_climate_change_strategy_bc_2019}. Emissions within the building sector are therefore driven by natural gas use, either on-site or within district systems. The two \textit{true} MACC cases show that in order to reach large reductions over the baseline condition, the use of natural gas must be eliminated. This however raises the point of how abatement should continue once the significant reductions are made and systems are then relying on a near-carbon-free grid. At present, BC (and UBC) expects new buildings to be net-zero \textit{energy} ready by the early 2030s, with no clear objectives on whether buildings should be truly net-zero energy (NZE) in a more distant future. There is reason for this, as evidenced by the modelling undertaken in this work. This study showed that in testing rooftop PV systems for medium density developments, PV systems will not yield large emissions reductions under any scenario. In the worst-case climate scenario rooftop panels alone reduced emissions by only 4.4\%. 
+
+Additionally building-based sequestration methods offer a potential avenue for meeting net-zero \textit{carbon} goals \citep{skullestad_high-rise_2016}. This study did not consider the Mass Timber strategy to be carbon sequestering, but it is less intensive than cement-based building, leading to between 60 and 300 Tonnes of carbon abated, depending on the development scenario. An increase in emissions is seen with the implementation of a seawater cooling loop, likely due to the fact that conventional methods of space cooling rely on a near-zero carbon grid to begin with and are not as intense from an embodied carbon perspective.
+
+\subsection*{Limitations of approach}
+
+The first limitation of this study lies in the not-so-explicit temporal interaction of the interventions. Each building was modeled as having its own unique construction and retrofit dates, which contribute to the emissions and total annualized cost profile for each run of the district energy model. While unique in their start and end date they are all set on a 30-year time horizon for all elements replacement. For some building technologies this may be a realistic time horizon for design-life, for many others it is not. Future efforts need to consider equipment and technology replacements more actively while also engaging the temporal simulation steps at more fine scales, possibly ten-years.
+
+A major limitation in the framework underpinning this study is the finite space of strategy choice. We test eight strategies here that are applied generally across the district. This may not always be a problem if prior to the study a strategy evaluation is conducted or subject-matter experts are brought in to help establish priors. Future efforts need to be more precise with strategy implementation based on building or site need. 
+
+In creating the morphed weather files, we used climate model data from global climate models and not regional climate models. This is typical practice for morphing, particularly if you want to adjust weather variables beyond temperature. However it is a limitation particularly in a region such as Southwestern, BC that is highly mountainous and coastal. Future efforts for morphing should address these limitations with climate model data that is either regionally generated or downscaled.
+
+The increase in cost of energy services was not accounted for dynamically. It would be expected, particularly in a country with a progressive carbon tax, that the cost of natural gas and electricity will increase over the coming decades, and outpace inflation-related increases. Future analysis must take this into account, as well as seek to differ the increase across climate change scenarios, which have different economic assumptions underpinning their respective increases in greenhouse gas emissions.
+%---------------------------------------------------------------------------------------
+\section*{Conclusion}
+In this study the output of 1024 different urban building energy simulations was used to generate marginal abatement cost curves and complimentary visualizations to make decisions on climate mitigation and adaptation at an urban scale. A case study of Wesbrook Village, a planned 25,000-member residential community in Vancouver, Canada was used.
+
+The resulting MACCs were created from two perspectives. First the \textit{illustrative} MACCs (Figures \ref{fig:MACC_threshold} and \ref{fig:MACC_budget}) sought to provide general guidance on which strategies achieve targeted mitigation under different planning constraints. The \textit{true} MACCs (Figure \ref{fig:true_macc_both}) reveal how the individual strategies within a set interact technically and financially to ultimately abate a certain amount of carbon. The candidate for the one of the \textit{true} MACCs was selected based on a mixture of adaptation and mitigation criteria. 
+
+The analysis had limitations discussed in the literature on using MACCs for decision-support. These include being more realistic about building technology and component lifetimes, which requires the framework to consider retirement. As well the study is constrained by computational resources (each 1024 iteration took 64 hours) and known mitigation and adaptation strategies for the site. Future studies should seek to better understand either through exploratory analysis or expert elicitation, which strategies are reasonable for the market and context. This will also aide in developing a cost and carbon database.
+
+The results of the simulation provide more than an example for decision-support visualization. In comparing the results we see a large difference in abatement between systems that continue to rely on natural gas into the latter half of the century and those that transition to a hydroelectric fed grid. The large jump between the two provokes the thought of how deep emissions reductions will be achieved when demand from space heating, cooling, DHW, and plug load are being met by affordable near-zero carbon electricity.
+
+%---------------------------------------------------------------------------------------
+\section*{Acknowledgment}
+This project was funded by the Pacific Institute for Climate Solutions (PICS) Energy Efficiency in the Built Environment Project (grant number PICS 36170-50280).
+
+%---------------------------------------------------------------------------------------
+\footnotesize
+\bibliographystyle{BS2021}
+\bibliography{bs2021_ref}
+% \newpage
+% \onecolumn
+% Please \textbf{do not} include this disclaimer in your paper.  You will be required to accept these conditions when you  submit your paper via the web site.
+\end{document}
